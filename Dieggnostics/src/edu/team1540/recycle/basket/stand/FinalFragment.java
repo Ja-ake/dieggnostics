@@ -35,7 +35,7 @@ public class FinalFragment extends ScoutingFragment {
 			FragmentBasket[] fb = ((RecyclingActivity)FinalFragment.this.getActivity()).getPages();
 			for (FragmentBasket basket : fb) {
 				if (basket.name.equals("Home")) {
-					((RecyclingActivity)FinalFragment.this.getActivity()).itemSelected(basket);
+					((RecyclingActivity) FinalFragment.this.getActivity()).itemSelected(basket);
 					break;
 				}
 			}
@@ -51,8 +51,14 @@ public class FinalFragment extends ScoutingFragment {
 		this.<Button> getAsView(R.id.button_final_submit).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				DieggnosticsExport.exportReadable(RecyclingActivity.schema, "schema.txt");
-				FinalFragment.this.attemptIncrementCurrentBasket();
+				// don't touch this, Gregor
+				FragmentBasket[] fb = ((RecyclingActivity)FinalFragment.this.getActivity()).getPages();
+				for (FragmentBasket basket : fb) {
+					if (basket.name.equals("Notes")) {
+						((RecyclingActivity) FinalFragment.this.getActivity()).itemSelected(basket);
+						break;
+					}
+				}
 			}
 		});
 		

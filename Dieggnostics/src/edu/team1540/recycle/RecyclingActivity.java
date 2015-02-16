@@ -14,6 +14,7 @@ import edu.team1540.egg.system.SystemConnectionHandler;
 import edu.team1540.recycle.basket.home.HomeFragment;
 import edu.team1540.recycle.basket.stand.AutonomousFragment;
 import edu.team1540.recycle.basket.stand.FinalFragment;
+import edu.team1540.recycle.basket.stand.NotesFragment;
 import edu.team1540.recycle.basket.stand.SubmitFragment;
 import edu.team1540.recycle.basket.stand.TeleOpFragment;
 import edu.team1540.recycle.user.GlobalData;
@@ -33,7 +34,8 @@ public final class RecyclingActivity extends ScoutingActivity {
 				new FragmentBasket(this, "Home", new HomeFragment(sf, b)),
 				new FragmentBasket(this, "Autonomous", new AutonomousFragment(sf, b)),
 				new FragmentBasket(this, "TeleOp", new TeleOpFragment(sf)),
-				new FragmentBasket(this, "Final", new FinalFragment(sf), sf) };
+				new FragmentBasket(this, "Final", new FinalFragment(sf)),
+				new FragmentBasket(this, "Notes", new NotesFragment(), sf) };
 	}
 
 	@Override

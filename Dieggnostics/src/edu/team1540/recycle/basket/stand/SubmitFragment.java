@@ -1,5 +1,7 @@
 package edu.team1540.recycle.basket.stand;
 
+import org.team1540.common.core.schema.impl.StandSchema;
+
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -21,13 +23,15 @@ public class SubmitFragment extends ScoutingFragment {
 	
 	@Override
 	public void readyLayout() {
+		RecyclingActivity.schema = new StandSchema();
+		((RecyclingActivity)this.getActivity()).loggedIn = false;
+		
 		View recycling = this.getActivity().findViewById(android.R.id.content).getRootView();
 		InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(recycling.getWindowToken(), 
                                   InputMethodManager.RESULT_UNCHANGED_SHOWN);
         
 		final RecyclingActivity activity = (RecyclingActivity) SubmitFragment.this.getActivity();
-		
 		this.<Button> getAsView(R.id.button_return).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

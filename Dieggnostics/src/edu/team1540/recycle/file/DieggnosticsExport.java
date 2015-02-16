@@ -1,6 +1,7 @@
 package edu.team1540.recycle.file;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,15 +12,21 @@ import org.team1540.common.core.schema.impl.StandSchema;
 import android.os.Environment;
 
 public class DieggnosticsExport {
-	public void export(StandSchema schema, String filename) {
+	public void export(StandSchema schema, String filename, String notesFilename) {
 		String contents = Schema.serilizeSchema(schema);
 		File file = new File(Environment.getExternalStoragePublicDirectory(
-	            Environment.DIRECTORY_DCIM), filename);
+	            Environment.DIRECTORY_DOWNLOADS), filename);
 		FileOutputStream output = null;
+		File fileNotes = new File(Environment.getExternalStoragePublicDirectory(
+	            Environment.DIRECTORY_DOWNLOADS), notesFilename);
+		FileOutputStream outputNotes = null;
+		
 		try {
 			file.createNewFile();
 			output = new FileOutputStream(file.getAbsolutePath());
 			output.write(contents.getBytes());
+			outputNotes = new FileOutputStream(fileNotes.getAbsolutePath());
+			outputNotes.write(schema.generalNotes.getBytes());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -72,5 +79,35 @@ public class DieggnosticsExport {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static String getFileContents(String filename) {
+		StringBuilder ret = new StringBuilder();
+		
+		File file = new File(Environment.getExternalStoragePublicDirectory(
+	            Environment.DIRECTORY_DOWNLOADS), filename);
+		FileInputStream input = null;
+		
+		try {
+			input = new FileInputStream(file.getAbsolutePath());
+			int in, l = 0;
+			byte[] character = new byte[2];
+			while ((in = input.read()) != -1) {
+				character[l] = (byte) in;
+				if (l == 1) ret.append(new String(character));
+				
+				if (l == 0) l = 1;
+				else l = 0;
+			}
+		} catch (IOException e) {
+			
+		} finally {
+			if (input != null)
+				try {
+					input.close();
+				} catch (IOException e) { }
+		}
+		
+		return ret.toString();
 	}
 }

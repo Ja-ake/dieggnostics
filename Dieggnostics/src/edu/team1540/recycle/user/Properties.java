@@ -34,10 +34,6 @@ public class Properties {
 			if (keyval.length < 3) continue;
 			if (keyval[0].equalsIgnoreCase("id")) entries.put(keyval[2], keyval[1]);
 		}
-		
-		for (Entry<String, String> entry : entries.entrySet()) {
-			Log.i("PROP", entry.getKey() + "\t" + entry.getValue());
-		}
 	}
 	
 	public String getProperty(String identifier) {

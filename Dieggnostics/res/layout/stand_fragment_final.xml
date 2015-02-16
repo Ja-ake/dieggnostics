@@ -311,6 +311,6 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/radio_q5"
         android:layout_marginTop="51dp"
-        android:text="@string/stand_auto_submit" />
+        android:text="@string/stand_next" />
 
 </RelativeLayout>
