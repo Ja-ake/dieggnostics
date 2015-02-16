@@ -24,4 +24,17 @@ public class ToteStackSchema extends Schema {
 
 		public static final long serialVersionUID = 2L;
 	}
+	
+	public String export() {
+		return oldHeight + "\u0004" + newHeight + "\u0004" + oldContainer + "\u0004" + newContainer + "\u0004" + coopertition;
+	}
+	
+	public void initialize(String s) {
+		String[] fields = s.split("\u0004");
+		oldHeight = Integer.parseInt(fields[0]);
+		newHeight = Integer.parseInt(fields[1]);
+		oldContainer = Boolean.parseBoolean(fields[2]);
+		newContainer = Boolean.parseBoolean(fields[3]);
+		coopertition = Boolean.parseBoolean(fields[4]);
+	}
 }
