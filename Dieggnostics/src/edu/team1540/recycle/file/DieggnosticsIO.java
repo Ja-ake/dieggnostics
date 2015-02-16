@@ -11,20 +11,24 @@ import org.team1540.common.core.schema.impl.StandSchema;
 
 import android.os.Environment;
 
-public class DieggnosticsExport {
-	public void export(StandSchema schema, String filename, String notesFilename) {
+public class DieggnosticsIO {
+	public static void export(StandSchema schema, String filename, String notesFilename, String autoFilename) {
 		String contents = Schema.serilizeSchema(schema);
 		File file = new File(Environment.getExternalStoragePublicDirectory(
 	            Environment.DIRECTORY_DOWNLOADS), filename);
-		FileOutputStream output = null;
 		File fileNotes = new File(Environment.getExternalStoragePublicDirectory(
 	            Environment.DIRECTORY_DOWNLOADS), notesFilename);
+		File autNotes = new File(Environment.getExternalStoragePublicDirectory(
+	            Environment.DIRECTORY_DOWNLOADS), notesFilename);
+		
 		FileOutputStream outputNotes = null;
+		FileOutputStream output = null;
+		FileOutputStream outputAuto = null;
 		
 		try {
 			file.createNewFile();
 			output = new FileOutputStream(file.getAbsolutePath());
-			output.write(contents.getBytes());
+			output.write(schema.export().getBytes());
 			outputNotes = new FileOutputStream(fileNotes.getAbsolutePath());
 			outputNotes.write(schema.generalNotes.getBytes());
 		} catch (FileNotFoundException e) {

@@ -10,7 +10,7 @@ import android.widget.TextView.OnEditorActionListener;
 import edu.team1540.egg.core.ScoutingFragment;
 import edu.team1540.recycle.R;
 import edu.team1540.recycle.RecyclingActivity;
-import edu.team1540.recycle.file.DieggnosticsExport;
+import edu.team1540.recycle.file.DieggnosticsIO;
 
 public class NotesFragment extends ScoutingFragment {
 
@@ -28,12 +28,12 @@ public class NotesFragment extends ScoutingFragment {
 					submit.setText("Are you sure?");
 					return;
 				}
-				DieggnosticsExport.exportReadable(RecyclingActivity.schema, "schema.txt");
+				DieggnosticsIO.exportReadable(RecyclingActivity.schema, "schema.txt");
 				NotesFragment.this.attemptIncrementCurrentBasket();
 			}
 		});
 		
-		String contents = DieggnosticsExport.getFileContents("notes.txt");
+		String contents = DieggnosticsIO.getFileContents("notes.txt");
 		
 		final EditText notes = this.<EditText> getAsView(R.id.edit_final_notes);
 		notes.setText(contents);

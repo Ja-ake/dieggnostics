@@ -15,7 +15,7 @@ import edu.team1540.egg.core.ScoutingFragment;
 import edu.team1540.egg.impl.dispatching.DispatchingFragment;
 import edu.team1540.recycle.R;
 import edu.team1540.recycle.RecyclingActivity;
-import edu.team1540.recycle.file.DieggnosticsExport;
+import edu.team1540.recycle.file.DieggnosticsIO;
 
 public class FinalFragment extends ScoutingFragment {
 
