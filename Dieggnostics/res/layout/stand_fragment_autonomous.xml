@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ToggleButton
+        android:id="@+id/button_container1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="136dp"
+        android:text="Button"
+        android:textOff="@string/stand_auto_c" />
+
+    <ToggleButton
+        android:id="@+id/button_tote1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_container1"
+        android:layout_alignBottom="@+id/button_container1"
+        android:layout_toRightOf="@+id/button_container1"
+        android:text="Button"
+        android:textOff="@string/stand_auto_t" />
+
+    <ToggleButton
+        android:id="@+id/button_tote3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_container3"
+        android:layout_alignBottom="@+id/button_container3"
+        android:layout_alignParentRight="true"
+        android:text="Button"
+        android:textOff="@string/stand_auto_t" />
+
+    <ToggleButton
+        android:id="@+id/button_container3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_tote2"
+        android:layout_alignBottom="@+id/button_tote2"
+        android:layout_toLeftOf="@+id/button_tote3"
+        android:text="Button"
+        android:textOff="@string/stand_auto_c" />
+
+    <ToggleButton
+        android:id="@+id/button_tote2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_container2"
+        android:layout_alignBottom="@+id/button_container2"
+        android:layout_toRightOf="@+id/button_container2"
+        android:text="@string/stand_auto_totes"
+        android:textOff="@string/stand_auto_t" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_container1"
+        android:layout_marginTop="57dp"
+        android:text="@string/stand_auto_notes"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/check_stacked_totes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button_container1"
+        android:layout_marginTop="20dp"
+        android:text="@string/stand_auto_stacked_totes"
+        android:textSize="30sp" />
+
+    <CheckBox
+        android:id="@+id/check_ended_in_auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/check_stacked_totes"
+        android:layout_alignBottom="@+id/check_stacked_totes"
+        android:layout_alignParentRight="true"
+        android:text="@string/stand_auto_ended_autozone"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/login_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_tote2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:text="@string/stand_auto_made_autozone"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login_name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/stand_next"
+        android:textSize="24sp" />
+
+    <ToggleButton
+        android:id="@+id/button_container2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/check_stacked_totes"
+        android:layout_alignLeft="@+id/login_name"
+        android:layout_marginLeft="66dp"
+        android:text="@string/stand_auto_container"
+        android:textOff="@string/stand_auto_c" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_tote1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stand_auto_explanation"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/edit_auto_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:gravity="center_vertical|top"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>

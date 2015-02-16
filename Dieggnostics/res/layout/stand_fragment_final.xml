@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="45dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/stand_final_question1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
+
+    <RadioGroup
+        android:id="@+id/radio_q1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        android:textAlignment="center" >
+
+        <RadioButton
+            android:id="@+id/radio_well"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/stand_final_result_well"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_poorly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_poorly"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_tried_and_failed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_tried_and_failed"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_did_not_attempt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_did_not_attempt"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_unsure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/radio_q1"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/stand_final_question2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/radio_q2"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/stand_final_question3"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
+
+    <RadioGroup
+        android:id="@+id/radio_q2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView01"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        android:textAlignment="center" >
+
+        <RadioButton
+            android:id="@+id/radio_well2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/stand_final_result_well"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_poorly2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_poorly"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_tried_and_failed2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_tried_and_failed"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_did_not_attempt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_did_not_attempt"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_unsure2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/radio_q3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView02"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        android:textAlignment="center" >
+
+        <RadioButton
+            android:id="@+id/radio_well3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/stand_final_result_well"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_poorly3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_poorly"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_tried_and_failed3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_tried_and_failed"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_did_not_attempt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_did_not_attempt"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_unsure3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/text_step_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/radio_q3"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/stand_final_question4"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
+
+    <RadioGroup
+        android:id="@+id/radio_q4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/text_step_count"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        android:textAlignment="center" >
+
+        <RadioButton
+            android:id="@+id/radio_multiple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/stand_final_result_multiple"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_one"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_none"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_unsure4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radio_q4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/stand_final_question5"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
+
+    <RadioGroup
+        android:id="@+id/radio_q5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/TextView04"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal"
+        android:textAlignment="center" >
+
+        <RadioButton
+            android:id="@+id/radio_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/stand_final_result_no"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_no_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_no_show"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_dead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_dead"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_broke_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_broke_down"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radio_hindered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_hindered"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_final_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/radio_q5"
+        android:layout_marginTop="51dp"
+        android:text="@string/stand_auto_submit" />
+
+</RelativeLayout>
