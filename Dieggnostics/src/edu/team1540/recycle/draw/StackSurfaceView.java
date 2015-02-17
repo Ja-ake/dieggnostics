@@ -105,6 +105,9 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		oldStackDrawer.draw(canvas, paint);
 		submitDrawer.draw(canvas, paint);
 		
+		canvas.drawText("Old", 270, 160, paint);
+		canvas.drawText("New", 670, 160, paint);
+		
 		if (oldSubmitDrawerStack.size() > 0) oldSubmitDrawerStack.peek().draw(canvas, paint);
 		
 		if (oldSubmitDrawer != null) {

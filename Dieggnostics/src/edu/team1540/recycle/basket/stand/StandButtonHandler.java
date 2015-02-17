@@ -19,7 +19,7 @@ public class StandButtonHandler {
 	}
 
 	public void onClick(final int id) {
-		StandSchema scheme = (StandSchema) act.schema;
+		StandSchema scheme = (StandSchema) RecyclingActivity.schema;
 				
 		switch (id) {
 		case R.id.button_sstep_minus: {

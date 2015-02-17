@@ -1,10 +1,6 @@
 package edu.team1540.recycle.basket.stand;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
@@ -12,7 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.EditText;
+import android.widget.ToggleButton;
 import edu.team1540.egg.core.FragmentBasket;
 import edu.team1540.egg.core.ScoutingFragment;
 import edu.team1540.recycle.R;
@@ -43,6 +39,14 @@ public class AutonomousFragment extends ScoutingFragment {
 				}
 			}
 		}
+		
+		this.<ToggleButton> getAsView(R.id.button_container1).setPressed(RecyclingActivity.schema.leftContainerAuto);
+		this.<ToggleButton> getAsView(R.id.button_container2).setPressed(RecyclingActivity.schema.middleContainerAuto);
+		this.<ToggleButton> getAsView(R.id.button_container3).setPressed(RecyclingActivity.schema.rightContainerAuto);
+		this.<ToggleButton> getAsView(R.id.button_tote1).setPressed(RecyclingActivity.schema.leftToteAuto);
+		this.<ToggleButton> getAsView(R.id.button_tote2).setPressed(RecyclingActivity.schema.middleToteAuto);
+		this.<ToggleButton> getAsView(R.id.button_tote3).setPressed(RecyclingActivity.schema.rightToteAuto);
+		
 		View recycling = this.getActivity().findViewById(android.R.id.content).getRootView();
 		InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(recycling.getWindowToken(), 
@@ -67,34 +71,15 @@ public class AutonomousFragment extends ScoutingFragment {
 		this.<CheckBox> getAsView(R.id.check_stacked_totes).setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				act.schema.stackedTotes = isChecked;
+				RecyclingActivity.schema.stackedTotes = isChecked;
 			}
 		});
 		
 		this.<CheckBox> getAsView(R.id.check_ended_in_auto).setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				act.schema.endedInAuto = isChecked;
+				RecyclingActivity.schema.endedInAuto = isChecked;
 			}
-		});
-		
-		this.<EditText> getAsView(R.id.edit_auto_notes).addTextChangedListener(new TextWatcher() {
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-				
-			}
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				act.schema.autoNotes = s.toString();
-			}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				
-			}
-			
 		});
 		
 		registerButton(R.id.button_container1);
@@ -118,27 +103,27 @@ public class AutonomousFragment extends ScoutingFragment {
 	public void handleButtons(int id, Button b) {
 		switch (id) {
 		case R.id.button_container1: {
-			act.schema.leftContainerAuto = !act.schema.leftContainerAuto;
+			RecyclingActivity.schema.leftContainerAuto = !RecyclingActivity.schema.leftContainerAuto;
 			break;
 		}
 		case R.id.button_container2: {
-			act.schema.middleContainerAuto = !act.schema.middleContainerAuto;
+			RecyclingActivity.schema.middleContainerAuto = !RecyclingActivity.schema.middleContainerAuto;
 			break;
 		}
 		case R.id.button_container3: {
-			act.schema.rightContainerAuto = !act.schema.rightContainerAuto;
+			RecyclingActivity.schema.rightContainerAuto = !RecyclingActivity.schema.rightContainerAuto;
 			break;
 		}
 		case R.id.button_tote1: {
-			act.schema.leftToteAuto = !act.schema.leftToteAuto;
+			RecyclingActivity.schema.leftToteAuto = !RecyclingActivity.schema.leftToteAuto;
 			break;
 		}
 		case R.id.button_tote2: {
-			act.schema.middleToteAuto = !act.schema.middleToteAuto;
+			RecyclingActivity.schema.middleToteAuto = !RecyclingActivity.schema.middleToteAuto;
 			break;
 		}
 		case R.id.button_tote3: {
-			act.schema.rightToteAuto = !act.schema.rightToteAuto;
+			RecyclingActivity.schema.rightToteAuto = !RecyclingActivity.schema.rightToteAuto;
 			break;
 		}
 		default: {

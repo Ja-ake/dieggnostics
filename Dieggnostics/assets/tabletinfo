@@ -1,0 +1,6 @@
+# this is an example settings file for the tablet, edit this to set up each tablet
+
+# robot-index specifies what the index of the robot from the match schedule will be used
+# if the the schedule for a game was [ 1540, 1538, 225, 400, 730, 888 ] and the robot-index was
+# 4, team 730 would be the selected robot
+robot-index 0

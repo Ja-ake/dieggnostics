@@ -55,16 +55,6 @@
         android:text="@string/stand_auto_totes"
         android:textOff="@string/stand_auto_t" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_container1"
-        android:layout_marginTop="57dp"
-        android:text="@string/stand_auto_notes"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <CheckBox
         android:id="@+id/check_stacked_totes"
         android:layout_width="wrap_content"
@@ -117,7 +107,7 @@
         android:textOff="@string/stand_auto_c" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/robot_number_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_tote1"
@@ -125,19 +115,13 @@
         android:text="@string/stand_auto_explanation"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText
-        android:id="@+id/edit_auto_notes"
+    <TextView
+        android:id="@+id/robot_number_auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:ems="10"
-        android:gravity="center_vertical|top"
-        android:inputType="textMultiLine" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_alignParentTop="true"
+        android:text="1540"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

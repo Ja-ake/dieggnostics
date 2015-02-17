@@ -2,7 +2,6 @@ package edu.team1540.recycle.basket.stand;
 
 import org.team1540.common.core.schema.impl.StandSchema;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,10 +11,8 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import edu.team1540.egg.core.FragmentBasket;
 import edu.team1540.egg.core.ScoutingFragment;
-import edu.team1540.egg.impl.dispatching.DispatchingFragment;
 import edu.team1540.recycle.R;
 import edu.team1540.recycle.RecyclingActivity;
-import edu.team1540.recycle.file.DieggnosticsIO;
 
 public class FinalFragment extends ScoutingFragment {
 
@@ -45,9 +42,7 @@ public class FinalFragment extends ScoutingFragment {
 		InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(recycling.getWindowToken(), 
                                   InputMethodManager.RESULT_UNCHANGED_SHOWN);
-        
-		final RecyclingActivity activity = (RecyclingActivity) FinalFragment.this.getActivity();
-		
+    		
 		this.<Button> getAsView(R.id.button_final_submit).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

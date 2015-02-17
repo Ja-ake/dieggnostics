@@ -14,6 +14,8 @@ import edu.team1540.egg.core.ScoutingFragment;
 import edu.team1540.recycle.R;
 import edu.team1540.recycle.RecyclingActivity;
 import edu.team1540.recycle.basket.stand.SubmitFragment;
+import edu.team1540.recycle.compititon.Schedule;
+import edu.team1540.recycle.file.DieggnosticsIO;
 import edu.team1540.recycle.user.GlobalData;
 
 public class HomeFragment extends ScoutingFragment {
@@ -30,8 +32,15 @@ public class HomeFragment extends ScoutingFragment {
 	
 	@Override
 	public void readyLayout() {
-//		submit.getSchema().loginName = "";
-//		loggedIn.set(false);
+		Schedule schedule = Schedule.load("sched.txt");
+		String contents = DieggnosticsIO.getFileContents("settings.txt");
+		String[] settings = contents.split(",");
+		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
+		int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
+
+		RecyclingActivity.robot = schedule.schedule.get(matchIndex+1)[robotIndex] + "";
+		RecyclingActivity.schema.teamNumber = schedule.schedule.get(matchIndex+1)[robotIndex];
+		System.out.println(RecyclingActivity.schema.teamNumber);
 		
 		final Button buttonLogin = this.<Button> getAsView(R.id.button_login);
 		final EditText textLogin = this.<EditText> getAsView(R.id.login_number);
@@ -45,7 +54,7 @@ public class HomeFragment extends ScoutingFragment {
 				final RecyclingActivity activity = (RecyclingActivity) HomeFragment.this.getActivity();
 				String id = textLogin.getText().toString();
 				String name = activity.properties.getProperty(id);
-				act.schema.loginName = name;
+				RecyclingActivity.schema.loginName = name;
 				loggedIn.loggedIn = true;
 				((RecyclingActivity)getActivity()).loggedIn = true;
 								

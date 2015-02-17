@@ -1,12 +1,16 @@
 package edu.team1540.recycle.basket.stand;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView.OnEditorActionListener;
 import edu.team1540.egg.core.ScoutingFragment;
 import edu.team1540.recycle.R;
 import edu.team1540.recycle.RecyclingActivity;
@@ -28,15 +32,31 @@ public class NotesFragment extends ScoutingFragment {
 					submit.setText("Are you sure?");
 					return;
 				}
-				DieggnosticsIO.exportReadable(RecyclingActivity.schema, "schema.txt");
+				
+				new File(Environment.getExternalStoragePublicDirectory(
+			            Environment.DIRECTORY_DOWNLOADS), "schemas").mkdirs();
+				new File(Environment.getExternalStoragePublicDirectory(
+			            Environment.DIRECTORY_DOWNLOADS), "modnotes").mkdirs();
+				new File(Environment.getExternalStoragePublicDirectory(
+			            Environment.DIRECTORY_DOWNLOADS), "unmodnotes").mkdirs();
+				
+				Date date = new Date();
+				SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy-h-mm-ss");
+				String formattedDate = sdf.format(date);
+				
+				String schemaName = "schemas/" + RecyclingActivity.schema.teamNumber + "-" + formattedDate + ".txt";
+				String notesName = "modnotes/" + RecyclingActivity.schema.teamNumber + ".txt";
+				
+				DieggnosticsIO.export(RecyclingActivity.schema, schemaName, notesName);
 				NotesFragment.this.attemptIncrementCurrentBasket();
 			}
 		});
 		
-		String contents = DieggnosticsIO.getFileContents("notes.txt");
+		String contents = DieggnosticsIO.getFileContents("unmodnotes/"+RecyclingActivity.schema.teamNumber);
 		
 		final EditText notes = this.<EditText> getAsView(R.id.edit_final_notes);
 		notes.setText(contents);
+		RecyclingActivity.schema.generalNotes = contents;
 		notes.addTextChangedListener(new TextWatcher() {
 
 			@Override
