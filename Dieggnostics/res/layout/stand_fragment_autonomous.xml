@@ -6,26 +6,6 @@
     android:orientation="vertical" >
 
     <ToggleButton
-        android:id="@+id/button_container1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="136dp"
-        android:text="Button"
-        android:textOff="@string/stand_auto_c" />
-
-    <ToggleButton
-        android:id="@+id/button_tote1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button_container1"
-        android:layout_alignBottom="@+id/button_container1"
-        android:layout_toRightOf="@+id/button_container1"
-        android:text="Button"
-        android:textOff="@string/stand_auto_t" />
-
-    <ToggleButton
         android:id="@+id/button_tote3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,16 +36,6 @@
         android:textOff="@string/stand_auto_t" />
 
     <CheckBox
-        android:id="@+id/check_stacked_totes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_container1"
-        android:layout_marginTop="20dp"
-        android:text="@string/stand_auto_stacked_totes"
-        android:textSize="30sp" />
-
-    <CheckBox
         android:id="@+id/check_ended_in_auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -90,7 +60,6 @@
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/login_name"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="@string/stand_next"
@@ -123,5 +92,34 @@
         android:layout_alignParentTop="true"
         android:text="1540"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/check_stacked_totes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="@string/stand_auto_stacked_totes"
+        android:textSize="30sp" />
+
+    <ToggleButton
+        android:id="@+id/button_containerr1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_tote1"
+        android:layout_alignBottom="@+id/button_tote1"
+        android:layout_alignParentLeft="true"
+        android:text="ToggleButton"
+        android:textOff="C" />
+
+    <ToggleButton
+        android:id="@+id/button_tote1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/check_stacked_totes"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/robot_number_auto"
+        android:text="Button"
+        android:textOff="@string/stand_auto_t" />
 
 </RelativeLayout>

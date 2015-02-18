@@ -43,7 +43,7 @@ public class AutonomousFragment extends ScoutingFragment {
 		
 		this.<TextView> getAsView(R.id.robot_number_auto).setText(RecyclingActivity.robot);
 		
-		this.<ToggleButton> getAsView(R.id.button_container1).setPressed(RecyclingActivity.schema.leftContainerAuto);
+		this.<ToggleButton> getAsView(R.id.button_containerr1).setPressed(RecyclingActivity.schema.leftContainerAuto);
 		this.<ToggleButton> getAsView(R.id.button_container2).setPressed(RecyclingActivity.schema.middleContainerAuto);
 		this.<ToggleButton> getAsView(R.id.button_container3).setPressed(RecyclingActivity.schema.rightContainerAuto);
 		this.<ToggleButton> getAsView(R.id.button_tote1).setPressed(RecyclingActivity.schema.leftToteAuto);
@@ -85,7 +85,7 @@ public class AutonomousFragment extends ScoutingFragment {
 			}
 		});
 		
-		registerButton(R.id.button_container1);
+		registerButton(R.id.button_containerr1);
 		registerButton(R.id.button_container2);
 		registerButton(R.id.button_container3);
 		registerButton(R.id.button_tote1);
@@ -105,7 +105,7 @@ public class AutonomousFragment extends ScoutingFragment {
 	
 	public void handleButtons(int id, Button b) {
 		switch (id) {
-		case R.id.button_container1: {
+		case R.id.button_containerr1: {
 			RecyclingActivity.schema.leftContainerAuto = !RecyclingActivity.schema.leftContainerAuto;
 			break;
 		}

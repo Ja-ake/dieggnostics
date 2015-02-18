@@ -102,7 +102,7 @@ public class TeleOpFragment extends ScoutingFragment {
 			}
 		}
 
-		this.<Button> getAsView(R.id.button_container1).setOnClickListener(new OnClickListener() {
+		this.<Button> getAsView(R.id.button_nnext).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				final RecyclingActivity activity = (RecyclingActivity) TeleOpFragment.this.getActivity();
