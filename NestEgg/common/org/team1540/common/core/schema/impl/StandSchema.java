@@ -7,7 +7,7 @@ import org.team1540.common.core.schema.Schema;
 import org.team1540.common.core.schema.impl.ToteStackSchema.ContainerState;
 
 public class StandSchema extends Schema {
-	private static final long serialVersionUID = 3L;
+	private static final long serialVersionUID = 4L;
 
 	public List<ToteStackSchema> stacks;
 
@@ -22,6 +22,8 @@ public class StandSchema extends Schema {
 
 	public boolean leftContainerAuto, middleContainerAuto, rightContainerAuto,
 	leftToteAuto, middleToteAuto, rightToteAuto;
+	public boolean leftContainerAutoTried, middleContainerAutoTried, rightContainerAutoTried,
+	leftToteAutoTried, middleToteAutoTried, rightToteAutoTried;
 	
 	public int question1 = 4, question2 = 4, question3 = 4, question4 = 3, question5 = 0;
 
@@ -52,12 +54,18 @@ public class StandSchema extends Schema {
 		b.append(errorsAlpha 			+ "\u0003");
 		b.append(errorsBeta 			+ "\u0003");
 		b.append(errorsDelta 			+ "\u0003");
-		b.append(leftContainerAuto 			+ "\u0003");
-		b.append(middleContainerAuto 		+ "\u0003");
+		b.append(leftContainerAuto 		+ "\u0003");
+		b.append(middleContainerAuto 	+ "\u0003");
 		b.append(rightContainerAuto 	+ "\u0003");
 		b.append(leftToteAuto 			+ "\u0003");
 		b.append(middleToteAuto 		+ "\u0003");
 		b.append(rightToteAuto 			+ "\u0003");
+		b.append(leftContainerAutoTried 		+ "\u0003");
+		b.append(middleContainerAutoTried 	+ "\u0003");
+		b.append(rightContainerAutoTried 	+ "\u0003");
+		b.append(leftToteAutoTried 			+ "\u0003");
+		b.append(middleToteAutoTried 		+ "\u0003");
+		b.append(rightToteAutoTried 			+ "\u0003");
 		b.append(question1 				+ "\u0003");
 		b.append(question2 				+ "\u0003");
 		b.append(question3 				+ "\u0003");
@@ -96,27 +104,33 @@ public class StandSchema extends Schema {
 		scheme.leftToteAuto = Boolean.parseBoolean(fields[9]);
 		scheme.middleToteAuto = Boolean.parseBoolean(fields[10]);
 		scheme.rightToteAuto = Boolean.parseBoolean(fields[11]);
-		scheme.question1 = Integer.parseInt(fields[12]);
-		scheme.question2 = Integer.parseInt(fields[13]);
-		scheme.question3 = Integer.parseInt(fields[14]);
-		scheme.question4 = Integer.parseInt(fields[15]);
-		scheme.question5 = Integer.parseInt(fields[16]);
-		scheme.stackedTotes = Boolean.parseBoolean(fields[17]);
-		scheme.endedInAuto = Boolean.parseBoolean(fields[18]);
-		scheme.teamName = fields[19];
-		scheme.teamNumber = Integer.parseInt(fields[20]);
-		scheme.matchNumber = Integer.parseInt(fields[21]);
+		scheme.leftContainerAutoTried = Boolean.parseBoolean(fields[12]);
+		scheme.middleContainerAutoTried = Boolean.parseBoolean(fields[13]);
+		scheme.rightContainerAutoTried = Boolean.parseBoolean(fields[14]);
+		scheme.leftToteAutoTried = Boolean.parseBoolean(fields[15]);
+		scheme.middleToteAutoTried = Boolean.parseBoolean(fields[16]);
+		scheme.rightToteAutoTried = Boolean.parseBoolean(fields[17]);
+		scheme.question1 = Integer.parseInt(fields[18]);
+		scheme.question2 = Integer.parseInt(fields[19]);
+		scheme.question3 = Integer.parseInt(fields[20]);
+		scheme.question4 = Integer.parseInt(fields[21]);
+		scheme.question5 = Integer.parseInt(fields[22]);
+		scheme.stackedTotes = Boolean.parseBoolean(fields[23]);
+		scheme.endedInAuto = Boolean.parseBoolean(fields[24]);
+		scheme.teamName = fields[25];
+		scheme.teamNumber = Integer.parseInt(fields[26]);
+		scheme.matchNumber = Integer.parseInt(fields[27]);
 
 		for (int i = 0; i < 4; i++) {
 			ContainerState cs = null;
-			if (fields[22 + i].equalsIgnoreCase("OTHER_SIDE")) cs = ContainerState.OTHER_SIDE;
-			if (fields[22 + i].equalsIgnoreCase("TIPPED")) cs = ContainerState.TIPPED;
-			if (fields[22 + i].equalsIgnoreCase("COLLECTED")) cs = ContainerState.COLLECTED;
+			if (fields[28 + i].equalsIgnoreCase("OTHER_SIDE")) cs = ContainerState.OTHER_SIDE;
+			if (fields[28 + i].equalsIgnoreCase("TIPPED")) cs = ContainerState.TIPPED;
+			if (fields[28 + i].equalsIgnoreCase("COLLECTED")) cs = ContainerState.COLLECTED;
 
 			scheme.containerStates[i] = cs;
 		}
 		
-		String[] stacs = fields[26].split("\u0005");
+		String[] stacs = fields[32].split("\u0005");
 		for (int i=0; i<stacs.length-1; i++) {
 			final ToteStackSchema schemes = new ToteStackSchema(0, 0, false, false, false);
 			schemes.initialize(stacs[i]);
