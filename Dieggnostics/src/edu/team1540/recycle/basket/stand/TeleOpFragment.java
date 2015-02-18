@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.team1540.common.core.schema.impl.StandSchema;
 import org.team1540.common.core.schema.impl.ToteStackSchema;
+import org.team1540.common.core.schema.impl.ToteStackSchema.ContainerState;
 
 import android.content.Context;
 import android.view.MotionEvent;
@@ -46,6 +47,40 @@ public class TeleOpFragment extends ScoutingFragment {
 			}
 		}
 		
+		this.<TextView> getAsView(R.id.text_container_countt).setText(RecyclingActivity.schema.litterContainer + "");
+		this.<TextView> getAsView(R.id.text_landfill_count).setText(RecyclingActivity.schema.litterLandfill + "");
+		this.<TextView> getAsView(R.id.text_error_alpha).setText(RecyclingActivity.schema.errorsAlpha + "");
+		this.<TextView> getAsView(R.id.text_error_beta).setText(RecyclingActivity.schema.errorsBeta + "");
+		this.<TextView> getAsView(R.id.text_error_delta).setText(RecyclingActivity.schema.errorsDelta + "");
+		
+		Button[] containerButtons = new Button[4*3];
+		containerButtons[0*3 + 0] = this.<Button> getAsView(R.id.container00);		containerButtons[0*3 + 0] = this.<Button> getAsView(R.id.container00);
+		containerButtons[0*3 + 1] = this.<Button> getAsView(R.id.container01);
+		containerButtons[0*3 + 2] = this.<Button> getAsView(R.id.container02);
+		containerButtons[1*3 + 0] = this.<Button> getAsView(R.id.container10);
+		containerButtons[1*3 + 1] = this.<Button> getAsView(R.id.container11);
+		containerButtons[1*3 + 2] = this.<Button> getAsView(R.id.container12);
+		containerButtons[2*3 + 0] = this.<Button> getAsView(R.id.container20);
+		containerButtons[2*3 + 1] = this.<Button> getAsView(R.id.container21);
+		containerButtons[2*3 + 2] = this.<Button> getAsView(R.id.container22);
+		containerButtons[3*3 + 0] = this.<Button> getAsView(R.id.container30);
+		containerButtons[3*3 + 1] = this.<Button> getAsView(R.id.container31);
+		containerButtons[3*3 + 2] = this.<Button> getAsView(R.id.container32);
+
+		for (int i=0; i<4; i++) {
+			if (RecyclingActivity.schema.containerStates[i] != null) {
+				if (RecyclingActivity.schema.containerStates[i].equals(ContainerState.OTHER_SIDE)) {
+					containerButtons[i*3+0].setText("x");
+				}
+				if (RecyclingActivity.schema.containerStates[i].equals(ContainerState.COLLECTED)) {
+					containerButtons[i*3+1].setText("x");
+				}
+				if (RecyclingActivity.schema.containerStates[i].equals(ContainerState.TIPPED)) {
+					containerButtons[i*3+2].setText("x");
+				}
+			} 
+		}
+
 		this.<TextView> getAsView(R.id.robot_number_tele).setText(RecyclingActivity.robot);
 		
 		View recycling = this.getActivity().findViewById(android.R.id.content).getRootView();

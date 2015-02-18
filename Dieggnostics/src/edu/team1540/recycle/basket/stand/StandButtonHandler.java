@@ -25,14 +25,14 @@ public class StandButtonHandler {
 		case R.id.button_container_minus: {
 			scheme.litterContainer--;
 			scheme.litterContainer = Math.max(scheme.litterContainer, 0);
-			final TextView tvm = fragment.<TextView> getAsView(R.id.text_container_count);
+			final TextView tvm = fragment.<TextView> getAsView(R.id.text_container_countt);
 			tvm.setText(Math.max(Integer.parseInt(tvm.getText().toString()) - 1, 0) + "");
 			break;
 		}
 		case R.id.button_container_plus: {
 			scheme.litterContainer++;
 			scheme.litterContainer = Math.max(scheme.litterContainer, 0);
-			final TextView tvm = fragment.<TextView> getAsView(R.id.text_container_count);
+			final TextView tvm = fragment.<TextView> getAsView(R.id.text_container_countt);
 			tvm.setText(Math.max(Integer.parseInt(tvm.getText().toString()) + 1, 0) + "");
 			break;
 		}
@@ -93,8 +93,14 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container00: {
-			scheme.containerStates[0] = ContainerState.OTHER_SIDE;
 			final Button bt = fragment.<Button> getAsView(R.id.container00);
+			if (scheme.containerStates[0] != null && scheme.containerStates[0].equals(ContainerState.OTHER_SIDE)) {
+				bt.setText("");
+				scheme.containerStates[0] = null;
+				break;
+			}
+			
+			scheme.containerStates[0] = ContainerState.OTHER_SIDE;
 			final Button oa = fragment.<Button> getAsView(R.id.container01);
 			final Button ob = fragment.<Button> getAsView(R.id.container02);
 			bt.setText("x");
@@ -103,9 +109,15 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container01: {
+			final Button bt = fragment.<Button> getAsView(R.id.container01);
+			if (scheme.containerStates[0] != null && scheme.containerStates[0].equals(ContainerState.TIPPED)) {
+				bt.setText("");
+				scheme.containerStates[0] = null;
+				break;
+			}
+			
 			scheme.containerStates[0] = ContainerState.TIPPED;
 			final Button oa = fragment.<Button> getAsView(R.id.container00);
-			final Button bt = fragment.<Button> getAsView(R.id.container01);
 			final Button ob = fragment.<Button> getAsView(R.id.container02);
 			bt.setText("x");
 			oa.setText("");
@@ -113,18 +125,30 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container02: {
+			final Button bt = fragment.<Button> getAsView(R.id.container02);
+			if (scheme.containerStates[0] != null && scheme.containerStates[0].equals(ContainerState.COLLECTED)) {
+				bt.setText("");
+				scheme.containerStates[0] = null;
+				break;
+			}
+			
 			scheme.containerStates[0] = ContainerState.COLLECTED;
 			final Button ob = fragment.<Button> getAsView(R.id.container00);
 			final Button oa = fragment.<Button> getAsView(R.id.container01);
-			final Button bt = fragment.<Button> getAsView(R.id.container02);
 			bt.setText("x");
 			oa.setText("");
 			ob.setText("");
 			break;
 		}
 		case R.id.container10: {
-			scheme.containerStates[1] = ContainerState.OTHER_SIDE;
 			final Button bt = fragment.<Button> getAsView(R.id.container10);
+			if (scheme.containerStates[1] != null && scheme.containerStates[1].equals(ContainerState.OTHER_SIDE)) {
+				bt.setText("");
+				scheme.containerStates[1] = null;
+				break;
+			}
+			
+			scheme.containerStates[1] = ContainerState.OTHER_SIDE;
 			final Button oa = fragment.<Button> getAsView(R.id.container11);
 			final Button ob = fragment.<Button> getAsView(R.id.container12);
 			bt.setText("x");
@@ -133,9 +157,15 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container11: {
+			final Button bt = fragment.<Button> getAsView(R.id.container11);
+			if (scheme.containerStates[1] != null && scheme.containerStates[1].equals(ContainerState.TIPPED)) {
+				bt.setText("");
+				scheme.containerStates[1] = null;
+				break;
+			}
+			
 			scheme.containerStates[1] = ContainerState.TIPPED;
 			final Button oa = fragment.<Button> getAsView(R.id.container10);
-			final Button bt = fragment.<Button> getAsView(R.id.container11);
 			final Button ob = fragment.<Button> getAsView(R.id.container12);
 			bt.setText("x");
 			oa.setText("");
@@ -143,18 +173,30 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container12: {
+			final Button bt = fragment.<Button> getAsView(R.id.container12);
+			if (scheme.containerStates[1] != null && scheme.containerStates[1].equals(ContainerState.COLLECTED)) {
+				bt.setText("");
+				scheme.containerStates[1] = null;
+				break;
+			}
+			
 			scheme.containerStates[1] = ContainerState.COLLECTED;
 			final Button ob = fragment.<Button> getAsView(R.id.container10);
 			final Button oa = fragment.<Button> getAsView(R.id.container11);
-			final Button bt = fragment.<Button> getAsView(R.id.container12);
 			bt.setText("x");
 			oa.setText("");
 			ob.setText("");
 			break;
 		}
 		case R.id.container20: {
-			scheme.containerStates[2] = ContainerState.OTHER_SIDE;
 			final Button bt = fragment.<Button> getAsView(R.id.container20);
+			if (scheme.containerStates[2] != null && scheme.containerStates[2].equals(ContainerState.OTHER_SIDE)) {
+				bt.setText("");
+				scheme.containerStates[2] = null;
+				break;
+			}
+			
+			scheme.containerStates[2] = ContainerState.OTHER_SIDE;
 			final Button oa = fragment.<Button> getAsView(R.id.container21);
 			final Button ob = fragment.<Button> getAsView(R.id.container22);
 			bt.setText("x");
@@ -163,9 +205,15 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container21: {
+			final Button bt = fragment.<Button> getAsView(R.id.container21);
+			if (scheme.containerStates[2] != null && scheme.containerStates[2].equals(ContainerState.TIPPED)) {
+				bt.setText("");
+				scheme.containerStates[2] = null;
+				break;
+			}
+			
 			scheme.containerStates[2] = ContainerState.TIPPED;
 			final Button oa = fragment.<Button> getAsView(R.id.container20);
-			final Button bt = fragment.<Button> getAsView(R.id.container21);
 			final Button ob = fragment.<Button> getAsView(R.id.container22);
 			bt.setText("x");
 			oa.setText("");
@@ -173,18 +221,30 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container22: {
+			final Button bt = fragment.<Button> getAsView(R.id.container22);
+			if (scheme.containerStates[2] != null && scheme.containerStates[2].equals(ContainerState.COLLECTED)) {
+				bt.setText("");
+				scheme.containerStates[2] = null;
+				break;
+			}
+			
 			scheme.containerStates[2] = ContainerState.COLLECTED;
 			final Button ob = fragment.<Button> getAsView(R.id.container20);
 			final Button oa = fragment.<Button> getAsView(R.id.container21);
-			final Button bt = fragment.<Button> getAsView(R.id.container22);
 			bt.setText("x");
 			oa.setText("");
 			ob.setText("");
 			break;
 		}
 		case R.id.container30: {
-			scheme.containerStates[3] = ContainerState.OTHER_SIDE;
 			final Button bt = fragment.<Button> getAsView(R.id.container30);
+			if (scheme.containerStates[3] != null && scheme.containerStates[3].equals(ContainerState.OTHER_SIDE)) {
+				bt.setText("");
+				scheme.containerStates[3] = null;
+				break;
+			}
+			
+			scheme.containerStates[3] = ContainerState.OTHER_SIDE;
 			final Button oa = fragment.<Button> getAsView(R.id.container31);
 			final Button ob = fragment.<Button> getAsView(R.id.container32);
 			bt.setText("x");
@@ -193,9 +253,15 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container31: {
+			final Button bt = fragment.<Button> getAsView(R.id.container31);
+			if (scheme.containerStates[3] != null && scheme.containerStates[3].equals(ContainerState.TIPPED)) {
+				bt.setText("");
+				scheme.containerStates[3] = null;
+				break;
+			}
+			
 			scheme.containerStates[3] = ContainerState.TIPPED;
 			final Button oa = fragment.<Button> getAsView(R.id.container30);
-			final Button bt = fragment.<Button> getAsView(R.id.container31);
 			final Button ob = fragment.<Button> getAsView(R.id.container32);
 			bt.setText("x");
 			oa.setText("");
@@ -203,10 +269,16 @@ public class StandButtonHandler {
 			break;
 		}
 		case R.id.container32: {
+			final Button bt = fragment.<Button> getAsView(R.id.container32);
+			if (scheme.containerStates[3] != null && scheme.containerStates[3].equals(ContainerState.COLLECTED)) {
+				bt.setText("");
+				scheme.containerStates[3] = null;
+				break;
+			}
+			
 			scheme.containerStates[3] = ContainerState.COLLECTED;
 			final Button ob = fragment.<Button> getAsView(R.id.container30);
 			final Button oa = fragment.<Button> getAsView(R.id.container31);
-			final Button bt = fragment.<Button> getAsView(R.id.container32);
 			bt.setText("x");
 			oa.setText("");
 			ob.setText("");

@@ -43,12 +43,15 @@ public class AutonomousFragment extends ScoutingFragment {
 		
 		this.<TextView> getAsView(R.id.robot_number_auto).setText(RecyclingActivity.robot);
 		
-		this.<ToggleButton> getAsView(R.id.button_containerr1).setPressed(RecyclingActivity.schema.leftContainerAuto);
-		this.<ToggleButton> getAsView(R.id.button_container2).setPressed(RecyclingActivity.schema.middleContainerAuto);
-		this.<ToggleButton> getAsView(R.id.button_container3).setPressed(RecyclingActivity.schema.rightContainerAuto);
-		this.<ToggleButton> getAsView(R.id.button_tote1).setPressed(RecyclingActivity.schema.leftToteAuto);
-		this.<ToggleButton> getAsView(R.id.button_tote2).setPressed(RecyclingActivity.schema.middleToteAuto);
-		this.<ToggleButton> getAsView(R.id.button_tote3).setPressed(RecyclingActivity.schema.rightToteAuto);
+		this.<ToggleButton> getAsView(R.id.button_containerr1).setChecked(RecyclingActivity.schema.leftContainerAuto);
+		this.<ToggleButton> getAsView(R.id.button_container2).setChecked(RecyclingActivity.schema.middleContainerAuto);
+		this.<ToggleButton> getAsView(R.id.button_container3).setChecked(RecyclingActivity.schema.rightContainerAuto);
+		this.<ToggleButton> getAsView(R.id.button_tote1).setChecked(RecyclingActivity.schema.leftToteAuto);
+		this.<ToggleButton> getAsView(R.id.button_tote2).setChecked(RecyclingActivity.schema.middleToteAuto);
+		this.<ToggleButton> getAsView(R.id.button_tote3).setChecked(RecyclingActivity.schema.rightToteAuto);
+		
+		this.<CheckBox> getAsView(R.id.check_stacked_totes).setChecked(RecyclingActivity.schema.stackedTotes);
+		this.<CheckBox> getAsView(R.id.check_ended_in_auto).setChecked(RecyclingActivity.schema.endedInAuto);
 		
 		View recycling = this.getActivity().findViewById(android.R.id.content).getRootView();
 		InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

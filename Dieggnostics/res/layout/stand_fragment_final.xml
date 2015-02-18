@@ -29,6 +29,13 @@
         android:textAlignment="center" >
 
         <RadioButton
+            android:id="@+id/radio_unsure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
+
+        <RadioButton
             android:id="@+id/radio_well"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,13 +62,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/stand_final_result_did_not_attempt"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/radio_unsure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_final_result_unsure"
             android:textSize="18sp" />
     </RadioGroup>
 
@@ -102,6 +102,13 @@
         android:textAlignment="center" >
 
         <RadioButton
+            android:id="@+id/radio_unsure2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
+
+        <RadioButton
             android:id="@+id/radio_well2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -129,13 +136,6 @@
             android:layout_height="wrap_content"
             android:text="@string/stand_final_result_did_not_attempt"
             android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/radio_unsure2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_final_result_unsure"
-            android:textSize="18sp" />
     </RadioGroup>
 
     <RadioGroup
@@ -149,6 +149,13 @@
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         android:textAlignment="center" >
+
+        <RadioButton
+            android:id="@+id/radio_unsure3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/radio_well3"
@@ -178,13 +185,6 @@
             android:layout_height="wrap_content"
             android:text="@string/stand_final_result_did_not_attempt"
             android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/radio_unsure3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_final_result_unsure"
-            android:textSize="18sp" />
     </RadioGroup>
 
     <TextView
@@ -213,6 +213,13 @@
         android:textAlignment="center" >
 
         <RadioButton
+            android:id="@+id/radio_unsure4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stand_final_result_unsure"
+            android:textSize="18sp" />
+
+        <RadioButton
             android:id="@+id/radio_multiple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -232,13 +239,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/stand_final_result_none"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/radio_unsure4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_final_result_unsure"
             android:textSize="18sp" />
     </RadioGroup>
 

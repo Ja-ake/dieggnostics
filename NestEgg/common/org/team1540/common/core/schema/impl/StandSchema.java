@@ -23,7 +23,7 @@ public class StandSchema extends Schema {
 	public boolean leftContainerAuto, middleContainerAuto, rightContainerAuto,
 	leftToteAuto, middleToteAuto, rightToteAuto;
 	
-	public int question1, question2, question3, question4, question5;
+	public int question1 = 4, question2 = 4, question3 = 4, question4 = 3, question5 = 0;
 
 	public boolean stackedTotes, endedInAuto;
 

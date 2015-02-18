@@ -307,7 +307,7 @@
                     android:textSize="30sp" />
 
                 <TextView
-                    android:id="@+id/text_container_count"
+                    android:id="@+id/text_container_countt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/stand_auto_0"
@@ -384,16 +384,6 @@
         android:text="@string/stand_auto_errors"
         android:textSize="40sp" />
 
-    <TextView
-        android:id="@+id/login_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/stand_auto_totes"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="40sp" />
-
     <Button
         android:id="@+id/button_nnext"
         android:layout_width="wrap_content"
@@ -449,11 +439,22 @@
         android:text="1540"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/login_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_nnext"
+        android:layout_marginRight="75dp"
+        android:layout_toLeftOf="@+id/button_nnext"
+        android:text="@string/stand_auto_totes"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40sp" />
+
     <CheckBox
         android:id="@+id/check_coopertition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/totes_surface"
+        android:layout_above="@+id/relativeLayout2"
         android:layout_toLeftOf="@+id/login_name"
         android:text="@string/stand_auto_cooperatition"
         android:textSize="30sp" />

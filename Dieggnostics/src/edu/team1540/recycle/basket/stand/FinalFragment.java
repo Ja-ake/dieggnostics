@@ -46,6 +46,93 @@ public class FinalFragment extends ScoutingFragment {
         imm.hideSoftInputFromWindow(recycling.getWindowToken(), 
                                   InputMethodManager.RESULT_UNCHANGED_SHOWN);
     		
+        switch (RecyclingActivity.schema.question1) {
+        case 0:
+        	this.<RadioGroup> getAsView(R.id.radio_q1).check(R.id.radio_well);
+        	break;
+        case 1:
+        	this.<RadioGroup> getAsView(R.id.radio_q1).check(R.id.radio_poorly);
+        	break;
+        case 2:
+        	this.<RadioGroup> getAsView(R.id.radio_q1).check(R.id.radio_did_not_attempt);
+        	break;
+        case 3:
+        	this.<RadioGroup> getAsView(R.id.radio_q1).check(R.id.radio_tried_and_failed);
+        	break;
+        case 4:
+        	this.<RadioGroup> getAsView(R.id.radio_q1).check(R.id.radio_unsure);
+        	break;
+        }
+
+        switch (RecyclingActivity.schema.question2) {
+        case 0:
+        	this.<RadioGroup> getAsView(R.id.radio_q2).check(R.id.radio_well2);
+        	break;
+        case 1:
+        	this.<RadioGroup> getAsView(R.id.radio_q2).check(R.id.radio_poorly2);
+        	break;
+        case 2:
+        	this.<RadioGroup> getAsView(R.id.radio_q2).check(R.id.radio_did_not_attempt2);
+        	break;
+        case 3:
+        	this.<RadioGroup> getAsView(R.id.radio_q2).check(R.id.radio_tried_and_failed2);
+        	break;
+        case 4:
+        	this.<RadioGroup> getAsView(R.id.radio_q2).check(R.id.radio_unsure2);
+        	break;
+        }
+        
+        switch (RecyclingActivity.schema.question3) {
+        case 0:
+        	this.<RadioGroup> getAsView(R.id.radio_q3).check(R.id.radio_well3);
+        	break;
+        case 1:
+        	this.<RadioGroup> getAsView(R.id.radio_q3).check(R.id.radio_poorly3);
+        	break;
+        case 2:
+        	this.<RadioGroup> getAsView(R.id.radio_q3).check(R.id.radio_did_not_attempt3);
+        	break;
+        case 3:
+        	this.<RadioGroup> getAsView(R.id.radio_q3).check(R.id.radio_tried_and_failed3);
+        	break;
+        case 4:
+        	this.<RadioGroup> getAsView(R.id.radio_q3).check(R.id.radio_unsure3);
+        	break;
+        }
+        
+        switch (RecyclingActivity.schema.question4) {
+        case 0:
+        	this.<RadioGroup> getAsView(R.id.radio_q4).check(R.id.radio_none);
+        	break;
+        case 1:
+        	this.<RadioGroup> getAsView(R.id.radio_q4).check(R.id.radio_one);
+        	break;
+        case 2:
+        	this.<RadioGroup> getAsView(R.id.radio_q4).check(R.id.radio_multiple);
+        	break;
+        case 3:
+        	this.<RadioGroup> getAsView(R.id.radio_q4).check(R.id.radio_unsure4);
+        	break;
+        }
+        
+        switch (RecyclingActivity.schema.question5) {
+        case 0:
+        	this.<RadioGroup> getAsView(R.id.radio_q5).check(R.id.radio_no);
+        	break;
+        case 1:
+        	this.<RadioGroup> getAsView(R.id.radio_q5).check(R.id.radio_no_show);
+        	break;
+        case 2:
+        	this.<RadioGroup> getAsView(R.id.radio_q5).check(R.id.radio_dead);
+        	break;
+        case 3:
+        	this.<RadioGroup> getAsView(R.id.radio_q5).check(R.id.radio_broke_down);
+        	break;
+        case 4:
+        	this.<RadioGroup> getAsView(R.id.radio_q5).check(R.id.radio_hindered);
+        	break;
+        }
+        
 		this.<Button> getAsView(R.id.button_final_submit).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
