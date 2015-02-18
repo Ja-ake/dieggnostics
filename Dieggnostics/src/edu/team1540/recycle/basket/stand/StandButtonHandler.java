@@ -22,20 +22,6 @@ public class StandButtonHandler {
 		StandSchema scheme = (StandSchema) RecyclingActivity.schema;
 				
 		switch (id) {
-		case R.id.button_sstep_minus: {
-			scheme.containersRemovedStep--;
-			scheme.containersRemovedStep = Math.min(Math.max(scheme.containersRemovedStep, 0), 4);
-			final TextView tvp = fragment.<TextView> getAsView(R.id.text_step_count);
-			tvp.setText(scheme.containersRemovedStep + "");
-			break;
-		}
-		case R.id.button_sstep_plus: {
-			scheme.containersRemovedStep++;
-			scheme.containersRemovedStep = Math.min(Math.max(scheme.containersRemovedStep, 0), 4);
-			final TextView tvp = fragment.<TextView> getAsView(R.id.text_step_count);
-			tvp.setText(scheme.containersRemovedStep + "");
-			break;
-		}
 		case R.id.button_container_minus: {
 			scheme.litterContainer--;
 			scheme.litterContainer = Math.max(scheme.litterContainer, 0);

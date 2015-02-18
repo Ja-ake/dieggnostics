@@ -1,6 +1,7 @@
 package edu.team1540.recycle.basket.stand;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -48,6 +49,20 @@ public class NotesFragment extends ScoutingFragment {
 				String notesName = "modnotes/" + RecyclingActivity.schema.teamNumber + ".txt";
 				
 				DieggnosticsIO.export(RecyclingActivity.schema, schemaName, notesName);
+				
+				try {
+					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
+					        Environment.DIRECTORY_DOWNLOADS), ""));
+					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
+					        Environment.DIRECTORY_DOWNLOADS), "/unmodnotes"));
+					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
+					        Environment.DIRECTORY_DOWNLOADS), "/modnotes"));
+					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
+					        Environment.DIRECTORY_DOWNLOADS), "/schemas"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				
 				NotesFragment.this.attemptIncrementCurrentBasket();
 			}
 		});

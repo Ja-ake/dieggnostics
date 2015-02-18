@@ -430,16 +430,6 @@
         android:layout_toRightOf="@+id/robot_number_notes"
         android:text="@string/stand_tele_errorb" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/relativeLayout2"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_marginLeft="21dp"
-        android:text="@string/stand_tele_step"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <LinearLayout
         android:id="@+id/LinearLayout06"
         android:layout_width="wrap_content"
@@ -448,40 +438,7 @@
         android:layout_marginRight="37dp"
         android:layout_toLeftOf="@+id/login_name"
         android:orientation="horizontal" >
-
-        <Button
-            android:id="@+id/button_sstep_minus"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_auto_minus"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/text_step_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_auto_0"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/button_sstep_plus"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_auto_plus"
-            android:textSize="30sp" />
     </LinearLayout>
-
-    <CheckBox
-        android:id="@+id/check_coopertition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_marginTop="-10dp"
-        android:layout_toLeftOf="@+id/button_container1"
-        android:text="@string/stand_auto_cooperatition"
-        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/robot_number_tele"
@@ -491,5 +448,14 @@
         android:layout_alignParentTop="true"
         android:text="1540"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/check_coopertition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/totes_surface"
+        android:layout_toLeftOf="@+id/login_name"
+        android:text="@string/stand_auto_cooperatition"
+        android:textSize="30sp" />
 
 </RelativeLayout>

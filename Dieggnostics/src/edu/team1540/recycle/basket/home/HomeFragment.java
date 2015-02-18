@@ -1,7 +1,5 @@
 package edu.team1540.recycle.basket.home;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;

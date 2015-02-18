@@ -123,8 +123,6 @@ public class TeleOpFragment extends ScoutingFragment {
 			}
 		});
 		
-		this.<Button> getAsView(R.id.button_sstep_minus).setOnClickListener(new TeleOnClickListener(R.id.button_sstep_minus));
-		this.<Button> getAsView(R.id.button_sstep_plus).setOnClickListener(new TeleOnClickListener(R.id.button_sstep_plus));
 		button_container_minus.setOnClickListener(new TeleOnClickListener(R.id.button_container_minus));
 		button_container_plus.setOnClickListener(new TeleOnClickListener(R.id.button_container_plus));
 		button_landfill_minus.setOnClickListener(new TeleOnClickListener(R.id.button_landfill_minus));

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import org.team1540.common.core.schema.Schema;
@@ -117,5 +118,17 @@ public class DieggnosticsIO {
 		}
 		
 		return ret.toString();
+	}
+	
+	public static void createFileListing(File directory) throws IOException {
+		String[] files = directory.list();
+		File filestxt = new File(directory.getAbsolutePath() + "/files.txt");
+		filestxt.createNewFile();
+		FileWriter fos = new FileWriter(filestxt.getAbsolutePath());
+		for (String file : files) {
+			fos.write(file + "\n");
+			System.out.println("Exporting " + file);
+		}
+		fos.close();
 	}
 }
