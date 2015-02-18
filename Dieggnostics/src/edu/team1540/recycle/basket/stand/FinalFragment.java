@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import edu.team1540.egg.core.FragmentBasket;
 import edu.team1540.egg.core.ScoutingFragment;
@@ -37,6 +38,8 @@ public class FinalFragment extends ScoutingFragment {
 				}
 			}
 		}
+		
+		this.<TextView> getAsView(R.id.robot_number_final).setText(RecyclingActivity.robot);
 		
 		View recycling = this.getActivity().findViewById(android.R.id.content).getRootView();
 		InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

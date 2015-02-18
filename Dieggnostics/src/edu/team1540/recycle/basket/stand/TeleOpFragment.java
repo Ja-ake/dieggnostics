@@ -15,6 +15,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import edu.team1540.egg.core.FragmentBasket;
 import edu.team1540.egg.core.ScoutingFragment;
@@ -44,6 +45,8 @@ public class TeleOpFragment extends ScoutingFragment {
 				}
 			}
 		}
+		
+		this.<TextView> getAsView(R.id.robot_number_tele).setText(RecyclingActivity.robot);
 		
 		View recycling = this.getActivity().findViewById(android.R.id.content).getRootView();
 		InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);

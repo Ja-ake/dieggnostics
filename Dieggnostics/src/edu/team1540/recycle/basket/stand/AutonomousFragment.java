@@ -7,6 +7,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ToggleButton;
 import edu.team1540.egg.core.FragmentBasket;
@@ -39,6 +40,8 @@ public class AutonomousFragment extends ScoutingFragment {
 				}
 			}
 		}
+		
+		this.<TextView> getAsView(R.id.robot_number_auto).setText(RecyclingActivity.robot);
 		
 		this.<ToggleButton> getAsView(R.id.button_container1).setPressed(RecyclingActivity.schema.leftContainerAuto);
 		this.<ToggleButton> getAsView(R.id.button_container2).setPressed(RecyclingActivity.schema.middleContainerAuto);

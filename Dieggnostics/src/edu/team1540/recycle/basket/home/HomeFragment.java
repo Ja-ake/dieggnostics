@@ -36,9 +36,10 @@ public class HomeFragment extends ScoutingFragment {
 		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
 		int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
 
-		RecyclingActivity.robot = schedule.schedule.get(matchIndex+1)[robotIndex] + "";
+		RecyclingActivity.robot = "Robot " + schedule.schedule.get(matchIndex+1)[robotIndex] + " : Match " + matchIndex+1 + " : " + (robotIndex < 3 ? "RED" : "BLUE");
 		RecyclingActivity.schema.teamNumber = schedule.schedule.get(matchIndex+1)[robotIndex];
-		System.out.println(RecyclingActivity.schema.teamNumber);
+		
+		this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
 		
 		final Button buttonLogin = this.<Button> getAsView(R.id.button_login);
 		final EditText textLogin = this.<EditText> getAsView(R.id.login_number);

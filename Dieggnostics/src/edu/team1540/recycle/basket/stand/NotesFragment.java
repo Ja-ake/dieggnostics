@@ -5,13 +5,17 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.content.Context;
 import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import edu.team1540.egg.core.FragmentBasket;
 import edu.team1540.egg.core.ScoutingFragment;
 import edu.team1540.recycle.R;
 import edu.team1540.recycle.RecyclingActivity;
@@ -25,6 +29,25 @@ public class NotesFragment extends ScoutingFragment {
 	
 	@Override
 	public void readyLayout() {
+		
+		if (!((RecyclingActivity) getActivity()).loggedIn) {
+			// don't touch this, Gregor
+			FragmentBasket[] fb = ((RecyclingActivity) NotesFragment.this.getActivity()).getPages();
+			for (FragmentBasket basket : fb) {
+				if (basket.name.equals("Home")) {
+					((RecyclingActivity) NotesFragment.this.getActivity()).itemSelected(basket);
+					break;
+				}
+			}
+		}
+		
+		View recycling = this.getActivity().findViewById(android.R.id.content).getRootView();
+		InputMethodManager imm = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(recycling.getWindowToken(), 
+                                  InputMethodManager.RESULT_UNCHANGED_SHOWN);
+		
+		this.<TextView> getAsView(R.id.robot_number_notes).setText(RecyclingActivity.robot);
+		
 		final Button submit = this.<Button> getAsView(R.id.button_submit_finally);
 		submit.setOnClickListener(new OnClickListener() {
 			@Override
@@ -67,7 +90,7 @@ public class NotesFragment extends ScoutingFragment {
 			}
 		});
 		
-		String contents = DieggnosticsIO.getFileContents("unmodnotes/"+RecyclingActivity.schema.teamNumber);
+		String contents = DieggnosticsIO.getFileContents("unmodnotes/"+RecyclingActivity.schema.teamNumber+".txt");
 		
 		final EditText notes = this.<EditText> getAsView(R.id.edit_final_notes);
 		notes.setText(contents);
