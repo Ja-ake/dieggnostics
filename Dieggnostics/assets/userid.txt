@@ -29,11 +29,11 @@ id,Kyle Okabayashi,37
 id,Max Luu,33
 id,Mind Tienparsertkij,91
 id,Rachel Ma,34
-id,Roberto,23
+id,Rabidabi,23
 id,Rushdi Abualhaija,24
-id,Reynaldo,0
+id,Ryan Selden,0
 id,Sydney Palmer,25
 id,Vincent Miller,10
-
+bruh
 # don't remove this, and don't question why you need it
 ,,
