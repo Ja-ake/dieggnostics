@@ -43,7 +43,7 @@ public class HomeFragment extends ScoutingFragment {
 		
 		final Button buttonLogin = this.<Button> getAsView(R.id.button_login);
 		final EditText textLogin = this.<EditText> getAsView(R.id.login_number);
-		final TextView loginName = this.<TextView> getAsView(R.id.login_name);
+		final TextView loginName = this.<TextView> getAsView(R.id.login_namee);
 
 		textLogin.setText("");
 		

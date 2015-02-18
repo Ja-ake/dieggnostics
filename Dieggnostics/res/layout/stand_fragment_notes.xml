@@ -27,16 +27,6 @@
         android:inputType="textMultiLine" />
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/stand_auto_notes"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp" />
-
-    <TextView
         android:id="@+id/robot_number_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,5 +34,15 @@
         android:layout_alignParentTop="true"
         android:text="1540"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/button_submit_finally"
+        android:text="@string/stand_auto_notes"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
 </RelativeLayout>
