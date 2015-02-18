@@ -89,6 +89,8 @@ public class TeleOpFragment extends ScoutingFragment {
                                   InputMethodManager.RESULT_UNCHANGED_SHOWN);
 		
 		final StackSurfaceView stackSurfaceView = new StackSurfaceView(this.getActivity());
+		if (RecyclingActivity.oldSubmitDrawer != null) stackSurfaceView.oldSubmitDrawer = RecyclingActivity.oldSubmitDrawer;
+		if (RecyclingActivity.oldSubmitDrawerStack != null) stackSurfaceView.oldSubmitDrawerStack = RecyclingActivity.oldSubmitDrawerStack;
 		final SurfaceView sv = this.<SurfaceView> getAsView(R.id.totes_surface);
 		sv.getHolder().addCallback(stackSurfaceView);
 
@@ -149,6 +151,9 @@ public class TeleOpFragment extends ScoutingFragment {
 				for (SubmitDrawer sd : stackSurfaceView.oldSubmitDrawerStack) {
 					schema.stacks.add(new ToteStackSchema(sd.oldStack, sd.mainStack, sd.oContainer, sd.mContainer, sd.coop)); // old, new
 				}
+				
+				RecyclingActivity.oldSubmitDrawer = stackSurfaceView.oldSubmitDrawer;
+				RecyclingActivity.oldSubmitDrawerStack = stackSurfaceView.oldSubmitDrawerStack;
 				
 				// don't touch this, Gregor
 				FragmentBasket[] fb = activity.getPages();
