@@ -14,7 +14,7 @@
         android:layout_above="@+id/relativeLayout2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/login_name"
+        android:layout_below="@+id/login_namee"
         android:layout_marginBottom="30dp"
         android:minHeight="1000dp" />
 
@@ -426,7 +426,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/totes_surface"
         android:layout_marginRight="37dp"
-        android:layout_toLeftOf="@+id/login_name"
+        android:layout_toLeftOf="@+id/login_namee"
         android:orientation="horizontal" >
     </LinearLayout>
 
@@ -440,7 +440,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/login_name"
+        android:id="@+id/login_namee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/button_nnext"
@@ -455,7 +455,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/relativeLayout2"
-        android:layout_toLeftOf="@+id/login_name"
+        android:layout_toLeftOf="@+id/login_namee"
         android:text="@string/stand_auto_cooperatition"
         android:textSize="30sp" />
 
