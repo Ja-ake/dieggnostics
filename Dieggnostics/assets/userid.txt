@@ -1,11 +1,7 @@
-# special
 id,Jake Springer,888
 id,Colby Skeggs,413
 id,Gregor Peach,1337
 id,Alexander Mackworth,0000
-
-# normal
-
 id,Adolfo Apolloni,09
 id,Aidan Smith,93
 id,Anna Dodson,22
@@ -24,7 +20,7 @@ id,Jacob Siegel,11
 id,Jake Hansen,99
 id,Jasper Gordon,13
 id,Josephine Evans,00
-id,Changm,525600
+id,Maria Chang,77
 id,Kyle Okabayashi,37
 id,Max Luu,33
 id,Mind Tienparsertkij,91
@@ -34,6 +30,3 @@ id,Rushdi Abualhaija,24
 id,Ryan Selden,0
 id,Sydney Palmer,25
 id,Vincent Miller,10
-bruh
-# don't remove this, and don't question why you need it
-,,
