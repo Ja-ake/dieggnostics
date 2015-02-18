@@ -1,6 +1,7 @@
 package edu.team1540.recycle;
 
 import java.io.IOException;
+import java.util.Stack;
 import java.util.UUID;
 
 import org.team1540.common.core.bluetooth.Address;
@@ -18,6 +19,7 @@ import edu.team1540.recycle.basket.stand.NotesFragment;
 import edu.team1540.recycle.basket.stand.SubmitFragment;
 import edu.team1540.recycle.basket.stand.TeleOpFragment;
 import edu.team1540.recycle.compititon.Schedule;
+import edu.team1540.recycle.draw.SubmitDrawer;
 import edu.team1540.recycle.file.DieggnosticsIO;
 import edu.team1540.recycle.user.GlobalData;
 import edu.team1540.recycle.user.Properties;
@@ -28,6 +30,9 @@ public final class RecyclingActivity extends ScoutingActivity {
 	public boolean loggedIn;
 	public static StandSchema schema = new StandSchema();
 	public static String robot = "Error";
+	
+	public static Stack<SubmitDrawer> oldSubmitDrawerStack;
+	public static SubmitDrawer oldSubmitDrawer;
 	
 	@Override
 	public FragmentBasket[] getPages() {

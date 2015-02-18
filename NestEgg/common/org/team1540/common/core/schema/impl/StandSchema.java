@@ -113,7 +113,7 @@ public class StandSchema extends Schema {
 			if (fields[22 + i].equalsIgnoreCase("TIPPED")) cs = ContainerState.TIPPED;
 			if (fields[22 + i].equalsIgnoreCase("COLLECTED")) cs = ContainerState.COLLECTED;
 
-			scheme.containerStates[22 + i] = cs;
+			scheme.containerStates[i] = cs;
 		}
 		
 		String[] stacs = fields[26].split("\u0005");

@@ -12,13 +12,13 @@ import android.view.SurfaceView;
 
 public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
-	private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+	private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 	private SurfaceHolder holder;
-	public final StackDrawer mainStackDrawer = new StackDrawer();
-	public final StackDrawer oldStackDrawer = new StackDrawer();
+	public StackDrawer mainStackDrawer = new StackDrawer();
+	public StackDrawer oldStackDrawer = new StackDrawer();
 	public SubmitDrawer submitDrawer = new SubmitDrawer(mainStackDrawer.stackHeight, oldStackDrawer.stackHeight, 70.f, 10.f);
 	public SubmitDrawer oldSubmitDrawer;
-	public final Stack<SubmitDrawer> oldSubmitDrawerStack = new Stack<SubmitDrawer>();
+	public Stack<SubmitDrawer> oldSubmitDrawerStack = new Stack<SubmitDrawer>();
 	public boolean coop;
 
 	public StackSurfaceView(final Context context) {
