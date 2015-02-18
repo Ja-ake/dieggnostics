@@ -30,7 +30,7 @@ public class HomeFragment extends ScoutingFragment {
 	
 	@Override
 	public void readyLayout() {
-		Schedule schedule = Schedule.load("sched.txt");
+		Schedule schedule = Schedule.load("schedule.txt");
 		String contents = DieggnosticsIO.getFileContents("settings.txt");
 		String[] settings = contents.split(",");
 		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
