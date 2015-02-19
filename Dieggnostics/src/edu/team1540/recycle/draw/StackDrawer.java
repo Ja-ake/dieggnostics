@@ -15,9 +15,9 @@ public class StackDrawer {
 		paint.setStyle(Style.STROKE);
 
 		float yshift = 0.0f;
-		final float dy = 130.0f;
-		for (int i = 0; i < 5; i++) {
-			if (i == 5 - stackHeight) {
+		final float dy = 115.0f;
+		for (int i = 0; i < 6; i++) {
+			if (i == 6 - stackHeight) {
 				paint.setStyle(Style.FILL_AND_STROKE);
 			}
 			canvas.drawRect(x, y + yshift, x + 350.0f, y + yshift + dy - 5.0f, paint);
@@ -27,6 +27,6 @@ public class StackDrawer {
 		paint.setStyle(!container ? Style.STROKE : Style.FILL_AND_STROKE);
 		canvas.drawRect(x + 50, y - 100, x + 300, y - 40, paint);
 		
-		if (stackHeight > 5 || stackHeight < 0) stackHeight = 0;
+		if (stackHeight > 6 || stackHeight < 0) stackHeight = 0;
 	}
 }
