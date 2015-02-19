@@ -119,7 +119,7 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		
 		if (submitDrawer.x > 1000) {
 			if (oldSubmitDrawer != null) oldSubmitDrawerStack.push(oldSubmitDrawer);
-			
+			if (oldSubmitDrawer != null) oldSubmitDrawer.y = 10.f;
 			oldSubmitDrawer = submitDrawer;
 			oldSubmitDrawer.initX = 1000.f;
 			oldSubmitDrawer.initY = 10.f;

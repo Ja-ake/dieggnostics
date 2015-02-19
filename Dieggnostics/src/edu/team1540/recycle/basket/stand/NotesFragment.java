@@ -1,6 +1,7 @@
 package edu.team1540.recycle.basket.stand;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,6 +58,15 @@ public class NotesFragment extends ScoutingFragment {
 					return;
 				}
 				
+				try {
+					new File(Environment.getExternalStoragePublicDirectory(
+					        Environment.DIRECTORY_DOWNLOADS), "schedule.txt").createNewFile();
+					new File(Environment.getExternalStoragePublicDirectory(
+					        Environment.DIRECTORY_DOWNLOADS), "schedule.txt").createNewFile();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				
 				new File(Environment.getExternalStoragePublicDirectory(
 			            Environment.DIRECTORY_DOWNLOADS), "schemas").mkdirs();
 				new File(Environment.getExternalStoragePublicDirectory(
@@ -72,8 +82,13 @@ public class NotesFragment extends ScoutingFragment {
 				String notesName = "modnotes/" + RecyclingActivity.schema.teamNumber + ".txt";
 				
 				DieggnosticsIO.export(RecyclingActivity.schema, schemaName, notesName);
+				File version = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "version.txt");
 				
 				try {
+					version.createNewFile();
+					FileWriter f = new FileWriter(version);
+					f.write("" + RecyclingActivity.schema.matchNumber);
+					
 					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
 					        Environment.DIRECTORY_DOWNLOADS), ""));
 					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
