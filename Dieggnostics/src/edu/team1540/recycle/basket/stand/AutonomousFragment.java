@@ -43,12 +43,36 @@ public class AutonomousFragment extends ScoutingFragment {
 		
 		this.<TextView> getAsView(R.id.robot_number_auto).setText(RecyclingActivity.robot);
 		
-		this.<ToggleButton> getAsView(R.id.button_containerr1).setChecked(RecyclingActivity.schema.leftContainerAuto);
-		this.<ToggleButton> getAsView(R.id.button_container2).setChecked(RecyclingActivity.schema.middleContainerAuto);
-		this.<ToggleButton> getAsView(R.id.button_container3).setChecked(RecyclingActivity.schema.rightContainerAuto);
-		this.<ToggleButton> getAsView(R.id.button_tote1).setChecked(RecyclingActivity.schema.leftToteAuto);
-		this.<ToggleButton> getAsView(R.id.button_tote2).setChecked(RecyclingActivity.schema.middleToteAuto);
-		this.<ToggleButton> getAsView(R.id.button_tote3).setChecked(RecyclingActivity.schema.rightToteAuto);
+		Button bc1 = this.<Button> getAsView(R.id.button_containerr1);
+		Button bc2 = this.<Button> getAsView(R.id.button_container2);
+		Button bc3 = this.<Button> getAsView(R.id.button_container3);
+		Button bt1 = this.<Button> getAsView(R.id.button_tote1);
+		Button bt2 = this.<Button> getAsView(R.id.button_tote2);
+		Button bt3 = this.<Button> getAsView(R.id.button_tote3);
+		
+		if (RecyclingActivity.schema.leftContainerAuto) bc1.setText("C : Suc");
+		else if (RecyclingActivity.schema.leftContainerAutoTried) bc1.setText("C : Fail");
+		else bc1.setText("C : Ign");
+		
+		if (RecyclingActivity.schema.middleContainerAuto) bc2.setText("C : Suc");
+		else if (RecyclingActivity.schema.middleContainerAutoTried) bc2.setText("C : Fail");
+		else bc2.setText("C : Ign");
+		
+		if (RecyclingActivity.schema.rightContainerAuto) bc3.setText("C : Suc");
+		else if (RecyclingActivity.schema.rightContainerAutoTried) bc3.setText("C : Fail");
+		else bc3.setText("C : Ign");
+		
+		if (RecyclingActivity.schema.leftToteAuto) bt1.setText("T : Suc");
+		else if (RecyclingActivity.schema.leftToteAutoTried) bt1.setText("T : Fail");
+		else bt1.setText("T : Ign");
+		
+		if (RecyclingActivity.schema.middleToteAuto) bt2.setText("T : Suc");
+		else if (RecyclingActivity.schema.middleToteAutoTried) bt2.setText("T : Fail");
+		else bt2.setText("T : Ign");
+		
+		if (RecyclingActivity.schema.rightToteAuto) bt3.setText("T : Suc");
+		else if (RecyclingActivity.schema.rightToteAutoTried) bt3.setText("T : Fail");
+		else bt3.setText("T : Ign");
 		
 		this.<CheckBox> getAsView(R.id.check_stacked_totes).setChecked(RecyclingActivity.schema.stackedTotes);
 		this.<CheckBox> getAsView(R.id.check_ended_in_auto).setChecked(RecyclingActivity.schema.endedInAuto);
@@ -107,29 +131,86 @@ public class AutonomousFragment extends ScoutingFragment {
 	}
 	
 	public void handleButtons(int id, Button b) {
+		if (b.getText().toString().contains("Ign")) b.setText(b.getText().toString().replace("Ign", "Suc"));
+		else if (b.getText().toString().contains("Suc")) b.setText(b.getText().toString().replace("Suc", "Fail"));
+		else b.setText(b.getText().toString().replace("Fail", "Ign"));
 		switch (id) {
 		case R.id.button_containerr1: {
-			RecyclingActivity.schema.leftContainerAuto = !RecyclingActivity.schema.leftContainerAuto;
+			if (b.getText().toString().contains("No")) {
+				RecyclingActivity.schema.leftContainerAuto = false;
+				RecyclingActivity.schema.leftContainerAutoTried = false;
+			} else if (b.getText().toString().contains("Yes")) {
+				RecyclingActivity.schema.leftContainerAuto = true;
+				RecyclingActivity.schema.leftContainerAutoTried = true;
+			} else {
+				RecyclingActivity.schema.leftContainerAuto = false;
+				RecyclingActivity.schema.leftContainerAutoTried = true;
+			}
 			break;
 		}
 		case R.id.button_container2: {
-			RecyclingActivity.schema.middleContainerAuto = !RecyclingActivity.schema.middleContainerAuto;
+			if (b.getText().toString().contains("Ign")) {
+				RecyclingActivity.schema.middleContainerAuto = false;
+				RecyclingActivity.schema.middleContainerAutoTried = false;
+			} else if (b.getText().toString().contains("Suc")) {
+				RecyclingActivity.schema.middleContainerAuto = true;
+				RecyclingActivity.schema.middleContainerAutoTried = true;
+			} else {
+				RecyclingActivity.schema.middleContainerAuto = false;
+				RecyclingActivity.schema.middleContainerAutoTried = true;
+			}
 			break;
 		}
 		case R.id.button_container3: {
-			RecyclingActivity.schema.rightContainerAuto = !RecyclingActivity.schema.rightContainerAuto;
+			if (b.getText().toString().contains("Ign")) {
+				RecyclingActivity.schema.rightContainerAuto = false;
+				RecyclingActivity.schema.rightContainerAutoTried = false;
+			} else if (b.getText().toString().contains("Suc")) {
+				RecyclingActivity.schema.rightContainerAuto = true;
+				RecyclingActivity.schema.rightContainerAutoTried = true;
+			} else {
+				RecyclingActivity.schema.rightContainerAuto = false;
+				RecyclingActivity.schema.rightContainerAutoTried = true;
+			}
 			break;
 		}
 		case R.id.button_tote1: {
-			RecyclingActivity.schema.leftToteAuto = !RecyclingActivity.schema.leftToteAuto;
+			if (b.getText().toString().contains("Ign")) {
+				RecyclingActivity.schema.leftToteAuto = false;
+				RecyclingActivity.schema.leftToteAutoTried = false;
+			} else if (b.getText().toString().contains("Suc")) {
+				RecyclingActivity.schema.leftToteAuto = true;
+				RecyclingActivity.schema.leftToteAutoTried = true;
+			} else {
+				RecyclingActivity.schema.leftToteAuto = false;
+				RecyclingActivity.schema.leftToteAutoTried = true;
+			}
 			break;
 		}
 		case R.id.button_tote2: {
-			RecyclingActivity.schema.middleToteAuto = !RecyclingActivity.schema.middleToteAuto;
+			if (b.getText().toString().contains("Ign")) {
+				RecyclingActivity.schema.middleToteAuto = false;
+				RecyclingActivity.schema.middleToteAutoTried = false;
+			} else if (b.getText().toString().contains("Suc")) {
+				RecyclingActivity.schema.middleToteAuto = true;
+				RecyclingActivity.schema.middleToteAutoTried = true;
+			} else {
+				RecyclingActivity.schema.middleToteAuto = false;
+				RecyclingActivity.schema.middleToteAutoTried = true;
+			}
 			break;
 		}
 		case R.id.button_tote3: {
-			RecyclingActivity.schema.rightToteAuto = !RecyclingActivity.schema.rightToteAuto;
+			if (b.getText().toString().contains("Ign")) {
+				RecyclingActivity.schema.rightToteAuto = false;
+				RecyclingActivity.schema.rightToteAutoTried = false;
+			} else if (b.getText().toString().contains("Suc")) {
+				RecyclingActivity.schema.rightToteAuto = true;
+				RecyclingActivity.schema.rightToteAutoTried = true;
+			} else {
+				RecyclingActivity.schema.rightToteAuto = false;
+				RecyclingActivity.schema.rightToteAutoTried = true;
+			}
 			break;
 		}
 		default: {

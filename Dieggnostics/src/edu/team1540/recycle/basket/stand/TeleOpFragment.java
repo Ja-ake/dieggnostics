@@ -199,8 +199,10 @@ public class TeleOpFragment extends ScoutingFragment {
 						stackSurfaceView.submitDrawer.beingMoved = false;
 						stackSurfaceView.submitDrawer.x = 70.f;
 						if (event.getX() > 475) {
-							if (event.getX() < 900) stackSurfaceView.mainStackDrawer.stackHeight = (int) (1+((1000 - event.getY()) / (700/5)));						
-						} else stackSurfaceView.oldStackDrawer.stackHeight = (int) (1+((1000 - event.getY()) / (700/5)));
+							if (event.getX() < 900) stackSurfaceView.mainStackDrawer.stackHeight = (int) (1+((1000 - event.getY()) / (700/6)));
+						} else stackSurfaceView.oldStackDrawer.stackHeight = (int) (1+((1000 - event.getY()) / (700/6)));
+						if (stackSurfaceView.mainStackDrawer.stackHeight > 6) stackSurfaceView.mainStackDrawer.stackHeight = 6;
+						if (stackSurfaceView.oldStackDrawer.stackHeight > 6) stackSurfaceView.oldStackDrawer.stackHeight = 6;
 					} else if (event.getY() > 140) {
 						if (event.getAction() == MotionEvent.ACTION_DOWN) {
 							if (event.getX() > 475) {

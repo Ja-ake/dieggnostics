@@ -88,8 +88,10 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		submitDrawer.mContainer = mainStackDrawer.container;
 		submitDrawer.oContainer = oldStackDrawer.container;
 		
-		if (submitDrawer.mainStack < 0 || submitDrawer.mainStack > 5) submitDrawer.mainStack = 0;
-		if (submitDrawer.oldStack < 0 || submitDrawer.oldStack > 5) submitDrawer.oldStack = 0;
+		if (submitDrawer.mainStack < 0) submitDrawer.mainStack = 0;
+		if (submitDrawer.oldStack < 0) submitDrawer.oldStack = 0;
+		if (submitDrawer.mainStack > 6) submitDrawer.mainStack = 6;
+		if (submitDrawer.oldStack > 6) submitDrawer.oldStack = 6;
 		
 		paint.setStrokeWidth(20);
 		canvas.drawLine(210, 64, 480, 64, paint);
