@@ -90,11 +90,11 @@ public class NotesFragment extends ScoutingFragment {
 			}
 		});
 		
-		String contents = DieggnosticsIO.getFileContents("unmodnotes/"+RecyclingActivity.schema.teamNumber+".txt");
+		if (RecyclingActivity.schema.generalNotes == null || RecyclingActivity.schema.generalNotes.equals("")) 
+			RecyclingActivity.schema.generalNotes = DieggnosticsIO.getFileContents("unmodnotes/"+RecyclingActivity.schema.teamNumber+".txt");
 		
 		final EditText notes = this.<EditText> getAsView(R.id.edit_final_notes);
-		notes.setText(contents);
-		RecyclingActivity.schema.generalNotes = contents;
+		notes.setText(RecyclingActivity.schema.generalNotes);
 		notes.addTextChangedListener(new TextWatcher() {
 
 			@Override
