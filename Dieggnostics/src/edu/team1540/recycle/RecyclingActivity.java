@@ -1,5 +1,6 @@
 package edu.team1540.recycle;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Stack;
 import java.util.UUID;
@@ -8,6 +9,7 @@ import org.team1540.common.core.bluetooth.Address;
 import org.team1540.common.core.schema.impl.StandSchema;
 
 import android.os.Bundle;
+import android.os.Environment;
 import edu.team1540.egg.core.FragmentBasket;
 import edu.team1540.egg.core.ScoutingActivity;
 import edu.team1540.egg.impl.dispatching.DispatchingBasket;
@@ -51,6 +53,7 @@ public final class RecyclingActivity extends ScoutingActivity {
 		super.onCreate(b);
 		properties = new Properties();
 		try {
+			new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "settings.txt").createNewFile();
 			properties.load("userid.txt", this);
 		} catch (IOException e) {
 			e.printStackTrace();
