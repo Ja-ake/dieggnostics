@@ -18,6 +18,7 @@ public class Schedule {
 	}
 	
 	public void addMatch(int[] match, int index) {
+		index--;
 		if (match.length != 6) throw new RuntimeException("Invalid match");
 		
 		while (schedule.size() < (index)+1) schedule.add(null);
