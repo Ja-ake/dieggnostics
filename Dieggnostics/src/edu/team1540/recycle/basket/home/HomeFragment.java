@@ -1,5 +1,9 @@
 package edu.team1540.recycle.basket.home;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -30,43 +34,73 @@ public class HomeFragment extends ScoutingFragment {
 	
 	@Override
 	public void readyLayout() {
-		Schedule schedule = Schedule.load("schedule.txt");
+		final Schedule schedule = Schedule.load("schedule.txt");
 		String contents = DieggnosticsIO.getFileContents("settings.txt");
 		String[] settings = contents.split(",");
-		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
-		int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
+		final int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
+		final int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
 		
-		RecyclingActivity.robot = "Robot " + schedule.schedule.get(matchIndex)[robotIndex] + " : Match " + (matchIndex+1) + " : " + (robotIndex < 3 ? "RED " + (robotIndex+1) : "BLUE" + (robotIndex-2));
-		RecyclingActivity.schema.teamNumber = schedule.schedule.get(matchIndex)[robotIndex];
+		RecyclingActivity.robot = " Robot " + schedule.schedule.get(matchIndex-1)[robotIndex] + " : Match " + (matchIndex) + " : " + (robotIndex < 3 ? "RED " + (robotIndex+1) : "BLUE" + (robotIndex-2));
+		RecyclingActivity.schema.teamNumber = schedule.schedule.get(matchIndex-1)[robotIndex];
+		RecyclingActivity.schema.matchNumber = matchIndex;
 		
 		TextView tabletID = this.<TextView> getAsView(R.id.tablet_id);
 		switch (robotIndex) {
 		case 0:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "<Incorrect Setup> "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "<None> "));
 			break;
 		case 1:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Rachel "));
 			break;
 		case 2:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet2 (needs name) "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Ross "));
 			break;
 		case 3:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet3 (needs name) "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Phoebe "));
 			break;
 		case 4:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet4 (needs name) "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Monica "));
 			break;
 		case 5:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet5 (needs name) "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Carol "));
 			break;
 		case 6:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet6 (needs name) "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Chandler "));
 			break;
 		default:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "<Incorrect Setup> "));
 			break;
 		}
-		
+
 		this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
+		
+		final EditText setMatch = this.<EditText> getAsView(R.id.edit_match_number);
+		setMatch.setText("" + (matchIndex+1));
+		
+		final TextView errorMessage = this.<TextView> getAsView(R.id.text_error_message);
+		final Button setMatchButton = this.<Button> getAsView(R.id.manual_match);
+		setMatchButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				int newMatchIndex = Integer.parseInt(setMatch.getText().toString());
+				if (schedule.schedule.size() < newMatchIndex || newMatchIndex < 1) {
+					errorMessage.setText("Error: Invalid match number. ");
+					return;
+				}
+				RecyclingActivity.robot = " Robot " + schedule.schedule.get(newMatchIndex-1)[robotIndex] + " : Match " + (newMatchIndex) + " : " + (robotIndex < 3 ? "RED " + (robotIndex+1) : "BLUE" + (robotIndex-2));
+				RecyclingActivity.schema.matchNumber = schedule.schedule.get(matchIndex-1)[robotIndex];
+				RecyclingActivity.schema.matchNumber = newMatchIndex;
+				HomeFragment.this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
+				errorMessage.setText("Match number set successfully to " + newMatchIndex + ". ");
+				try {
+					FileWriter fw = new FileWriter(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/settings.txt");
+					fw.write(robotIndex + "," + newMatchIndex + "\n");
+					fw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		final Button buttonLogin = this.<Button> getAsView(R.id.button_login);
 		final EditText textLogin = this.<EditText> getAsView(R.id.login_number);
