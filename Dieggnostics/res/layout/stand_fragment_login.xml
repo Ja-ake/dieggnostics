@@ -68,4 +68,32 @@
         android:text="Tablet: &lt;None>"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/manual_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tablet_id"
+        android:text="Set Match" />
+
+    <EditText
+        android:id="@+id/edit_match_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/manual_match"
+        android:layout_alignLeft="@+id/login_namee"
+        android:layout_marginLeft="110dp"
+        android:layout_toLeftOf="@+id/manual_match"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="number"
+        android:minWidth="170dp" />
+
+    <TextView
+        android:id="@+id/text_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/manual_match" />
+
 </RelativeLayout>
