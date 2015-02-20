@@ -47,24 +47,21 @@ public class HomeFragment extends ScoutingFragment {
 		TextView tabletID = this.<TextView> getAsView(R.id.tablet_id);
 		switch (robotIndex) {
 		case 0:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "<None> "));
-			break;
-		case 1:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Rachel "));
 			break;
-		case 2:
+		case 1:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Ross "));
 			break;
-		case 3:
+		case 2:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Phoebe "));
 			break;
-		case 4:
+		case 3:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Monica "));
 			break;
-		case 5:
+		case 4:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Carol "));
 			break;
-		case 6:
+		case 5:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Chandler "));
 			break;
 		default:
