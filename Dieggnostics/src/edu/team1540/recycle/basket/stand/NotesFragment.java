@@ -61,8 +61,6 @@ public class NotesFragment extends ScoutingFragment {
 				try {
 					new File(Environment.getExternalStoragePublicDirectory(
 					        Environment.DIRECTORY_DOWNLOADS), "schedule.txt").createNewFile();
-					new File(Environment.getExternalStoragePublicDirectory(
-					        Environment.DIRECTORY_DOWNLOADS), "schedule.txt").createNewFile();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -86,7 +84,7 @@ public class NotesFragment extends ScoutingFragment {
 				
 				try {
 					version.createNewFile();
-					FileWriter f = new FileWriter(version);
+					FileWriter f = new FileWriter(version.getAbsolutePath());
 					f.write("" + RecyclingActivity.schema.matchNumber);
 					
 					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
@@ -97,6 +95,8 @@ public class NotesFragment extends ScoutingFragment {
 					        Environment.DIRECTORY_DOWNLOADS), "/modnotes"));
 					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
 					        Environment.DIRECTORY_DOWNLOADS), "/schemas"));
+					
+					f.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

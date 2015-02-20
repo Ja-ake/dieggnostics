@@ -35,9 +35,36 @@ public class HomeFragment extends ScoutingFragment {
 		String[] settings = contents.split(",");
 		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
 		int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
-
-		RecyclingActivity.robot = "Robot " + schedule.schedule.get(matchIndex+1)[robotIndex] + " : Match " + matchIndex+1 + " : " + (robotIndex < 3 ? "RED" : "BLUE");
-		RecyclingActivity.schema.teamNumber = schedule.schedule.get(matchIndex+1)[robotIndex];
+		
+		RecyclingActivity.robot = "Robot " + schedule.schedule.get(matchIndex)[robotIndex] + " : Match " + (matchIndex+1) + " : " + (robotIndex < 3 ? "RED " + (robotIndex+1) : "BLUE" + (robotIndex-2));
+		RecyclingActivity.schema.teamNumber = schedule.schedule.get(matchIndex)[robotIndex];
+		
+		TextView tabletID = this.<TextView> getAsView(R.id.tablet_id);
+		switch (robotIndex) {
+		case 0:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "<Incorrect Setup> "));
+			break;
+		case 1:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Rachel "));
+			break;
+		case 2:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet2 (needs name) "));
+			break;
+		case 3:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet3 (needs name) "));
+			break;
+		case 4:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet4 (needs name) "));
+			break;
+		case 5:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet5 (needs name) "));
+			break;
+		case 6:
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Tablet6 (needs name) "));
+			break;
+		default:
+			break;
+		}
 		
 		this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
 		

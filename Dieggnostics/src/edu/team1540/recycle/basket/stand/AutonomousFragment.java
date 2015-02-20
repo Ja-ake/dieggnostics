@@ -42,6 +42,8 @@ public class AutonomousFragment extends ScoutingFragment {
 		}
 		
 		this.<TextView> getAsView(R.id.robot_number_auto).setText(RecyclingActivity.robot);
+		TextView tla = this.<TextView> getAsView(R.id.auto_logged_in_as);
+		tla.setText(tla.getText().toString().replace("<Name>", RecyclingActivity.schema.loginName));
 		
 		Button bc1 = this.<Button> getAsView(R.id.button_containerr1);
 		Button bc2 = this.<Button> getAsView(R.id.button_container2);
