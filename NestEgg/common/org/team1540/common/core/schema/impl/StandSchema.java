@@ -41,7 +41,7 @@ public class StandSchema extends Schema {
 	
 	public String loginName = "";
 	
-	public String competition = "";
+	public String competition = "Default";
 
 	public StandSchema() {
 		stacks = new ArrayList<ToteStackSchema>();
