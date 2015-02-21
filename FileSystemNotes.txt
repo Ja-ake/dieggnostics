@@ -1,0 +1,47 @@
+Team 1540 - Flaming Chickens
+
+I've just got some notes here about how the filesystem on the tablets and on the 
+flashdrive will work, that way it is not scattered across lots of emails.
+
+Edit AND EMAIL ME if anything here is wrong...
+
+TABLET FILESYSTEM: 
+All files in /storage/emulated/legacy/Download folder:
+      schemas/:
+          1540-02-21-2015-14-05-44.txt
+          XXXX-MM-DD-YYYY-hh-mm-ss.txt !!!Time is always in 24 hour format!
+      unmodnotes/:
+          //Do not edit anything in here, just copy modified notes over to modnotes/
+          1540.txt
+          XXXX.txt
+      modnotes/:
+          //This will be blank after I sync with tablet, move unmod note over here when you modify it.
+          1540.txt
+          XXXX.txt
+      schedule.txt - match schedule
+      sched.txt - identical match schedule, we never decided on which one to use
+      teams.txt - Team names for that competition in the format 1540:The Flaming Chickens\n
+      settings.txt - Settings file with this format- "tabletRole,matchNumber,competitionID" where tablet role is 0-5 for Red1 Red2 Red3 Blue1..., matchNumber is the mostt recent match number, and competitionID is something like "2015orosu"
+
+
+FLASHDRIVE FILESYSTEM:
+All flashdrives will be named "COMPANAL" in the MS-DOS/FAT32 format.
+On a Mac, they mount at /Volumes/COMPANAL/
+On Ubuntu, they mount at /media/username/COMPANAL where username is probably "flaming"
+COMPANAL/:
+      schedule.txt - match schedule
+      sched.txt - identical match schedule, we never decided on which one to use
+      teams.txt - Team names for that competition in the format 1540:The Flaming Chickens\n
+      schemas/:
+          1540-02-21-2015-14-05-44.txt
+          XXXX-MM-DD-YYYY-hh-mm-ss.txt !!!Time is always in 24 hour format!
+      notes/:
+          1540.txt
+          XXXX.txt
+      procschemas/:
+          //This directory contains my "processed" schemas for the coaches app. Conner, if you want to know what these are, let me know. They might be useful for you.
+          1540.json
+          XXXX.json
+
+
+          
