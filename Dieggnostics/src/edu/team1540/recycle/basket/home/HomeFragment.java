@@ -40,6 +40,9 @@ public class HomeFragment extends ScoutingFragment {
 		String[] settings = contents.split(",");
 		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
 		int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
+		if (settings.length > 2) RecyclingActivity.schema.competition = settings[2];
+		
+		this.<TextView> getAsView(R.id.competition_name).setText(" "+RecyclingActivity.schema.competition);
 		
 		if (matchIndex < 1 || matchIndex > schedule.schedule.size()) {
 			errorMessage.setText("There was an error in the settings file, resetting. ");

@@ -96,4 +96,13 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/manual_match" />
 
+    <TextView
+        android:id="@+id/competition_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/robot_number_login"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>
