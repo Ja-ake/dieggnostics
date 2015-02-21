@@ -35,6 +35,8 @@ public final class RecyclingActivity extends ScoutingActivity {
 	
 	public static Stack<SubmitDrawer> oldSubmitDrawerStack;
 	public static SubmitDrawer oldSubmitDrawer;
+	public static int robotIndex;
+	public static int matchIndex;
 	
 	@Override
 	public FragmentBasket[] getPages() {

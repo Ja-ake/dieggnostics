@@ -34,15 +34,44 @@ public class HomeFragment extends ScoutingFragment {
 	
 	@Override
 	public void readyLayout() {
+		final TextView errorMessage = this.<TextView> getAsView(R.id.text_error_message);
+		
 		final Schedule schedule = Schedule.load("schedule.txt");
 		String contents = DieggnosticsIO.getFileContents("settings.txt");
 		String[] settings = contents.split(",");
-		final int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
-		final int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
+		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
+		int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
+		
+		if (matchIndex < 1 || matchIndex > schedule.schedule.size()) {
+			errorMessage.setText("There was an error in the settings file, resetting. ");
+			matchIndex = 1;
+			try {
+				FileWriter fw = new FileWriter(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/settings.txt");
+				fw.write(robotIndex + "," + matchIndex + "\n");
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if (robotIndex < 0 || robotIndex > 5) {
+			errorMessage.setText("There was an error in the settings file, resetting. ");
+			robotIndex = 0;
+			try {
+				FileWriter fw = new FileWriter(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/settings.txt");
+				fw.write(robotIndex + "," + matchIndex + "\n");
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		
 		RecyclingActivity.robot = " Robot " + schedule.schedule.get(matchIndex-1)[robotIndex] + " : Match " + (matchIndex) + " : " + (robotIndex < 3 ? "RED " + (robotIndex+1) : "BLUE" + (robotIndex-2));
 		RecyclingActivity.schema.teamNumber = schedule.schedule.get(matchIndex-1)[robotIndex];
 		RecyclingActivity.schema.matchNumber = matchIndex;
+		
+		RecyclingActivity.matchIndex = RecyclingActivity.schema.matchNumber;
+		RecyclingActivity.robotIndex = robotIndex;
 		
 		TextView tabletID = this.<TextView> getAsView(R.id.tablet_id);
 		switch (robotIndex) {
@@ -73,8 +102,7 @@ public class HomeFragment extends ScoutingFragment {
 		
 		final EditText setMatch = this.<EditText> getAsView(R.id.edit_match_number);
 		setMatch.setText("" + (matchIndex+1));
-		
-		final TextView errorMessage = this.<TextView> getAsView(R.id.text_error_message);
+		final int roboIndex = robotIndex;
 		final Button setMatchButton = this.<Button> getAsView(R.id.manual_match);
 		setMatchButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -84,14 +112,17 @@ public class HomeFragment extends ScoutingFragment {
 					errorMessage.setText("Error: Invalid match number. ");
 					return;
 				}
-				RecyclingActivity.robot = " Robot " + schedule.schedule.get(newMatchIndex-1)[robotIndex] + " : Match " + (newMatchIndex) + " : " + (robotIndex < 3 ? "RED " + (robotIndex+1) : "BLUE" + (robotIndex-2));
-				RecyclingActivity.schema.teamNumber = schedule.schedule.get(newMatchIndex-1)[robotIndex];
+				RecyclingActivity.robot = " Robot " + schedule.schedule.get(newMatchIndex-1)[roboIndex] + " : Match " + (newMatchIndex) + " : " + (roboIndex < 3 ? "RED " + (roboIndex+1) : "BLUE" + (roboIndex-2));
+				RecyclingActivity.schema.teamNumber = schedule.schedule.get(newMatchIndex-1)[roboIndex];
 				RecyclingActivity.schema.matchNumber = newMatchIndex;
+				RecyclingActivity.matchIndex = RecyclingActivity.schema.matchNumber;
+				RecyclingActivity.robotIndex = roboIndex;
+				
 				HomeFragment.this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
 				errorMessage.setText("Match number set successfully to " + newMatchIndex + ". ");
 				try {
 					FileWriter fw = new FileWriter(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/settings.txt");
-					fw.write(robotIndex + "," + newMatchIndex + "\n");
+					fw.write(roboIndex + "," + newMatchIndex + "\n");
 					fw.close();
 				} catch (IOException e) {
 					e.printStackTrace();

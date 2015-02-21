@@ -31,11 +31,6 @@ public class DieggnosticsIO {
 			
 			outputNotes = new FileOutputStream(fileNotes.getAbsolutePath());
 			if (schema.generalNotes != null) outputNotes.write(schema.generalNotes.getBytes());
-			
-			System.out.println(schema.export());
-			System.out.println(schema.generalNotes);
-			
-			System.out.println(file.getAbsolutePath());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

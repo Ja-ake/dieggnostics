@@ -87,6 +87,10 @@ public class NotesFragment extends ScoutingFragment {
 					FileWriter f = new FileWriter(version.getAbsolutePath());
 					f.write("" + RecyclingActivity.schema.matchNumber);
 					
+					FileWriter fprime = new FileWriter(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "settings.txt"));
+					fprime.write(RecyclingActivity.robotIndex + "," + (RecyclingActivity.matchIndex+1) + "\n");
+					fprime.close();
+					
 					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
 					        Environment.DIRECTORY_DOWNLOADS), ""));
 					DieggnosticsIO.createFileListing(new File(Environment.getExternalStoragePublicDirectory(
