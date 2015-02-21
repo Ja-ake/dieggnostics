@@ -85,7 +85,7 @@ public class HomeFragment extends ScoutingFragment {
 					return;
 				}
 				RecyclingActivity.robot = " Robot " + schedule.schedule.get(newMatchIndex-1)[robotIndex] + " : Match " + (newMatchIndex) + " : " + (robotIndex < 3 ? "RED " + (robotIndex+1) : "BLUE" + (robotIndex-2));
-				RecyclingActivity.schema.matchNumber = schedule.schedule.get(matchIndex-1)[robotIndex];
+				RecyclingActivity.schema.teamNumber = schedule.schedule.get(newMatchIndex-1)[robotIndex];
 				RecyclingActivity.schema.matchNumber = newMatchIndex;
 				HomeFragment.this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
 				errorMessage.setText("Match number set successfully to " + newMatchIndex + ". ");
