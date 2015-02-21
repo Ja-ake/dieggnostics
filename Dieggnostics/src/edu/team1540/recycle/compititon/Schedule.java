@@ -31,7 +31,6 @@ public class Schedule {
 		String contents = DieggnosticsIO.getFileContents(file);
 		String[] lines = contents.split("\\r?\\n");
 		for (String matc : lines) {
-			System.out.println(matc);
 			String[] matchline = matc.split(":");
 			String match = matchline[1];
 			match = match.substring(1, match.length()-2); // cull brackets

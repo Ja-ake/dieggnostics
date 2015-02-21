@@ -122,7 +122,6 @@ public class DieggnosticsIO {
 		FileWriter fos = new FileWriter(filestxt.getAbsolutePath());
 		for (String file : files) {
 			fos.write(file + "\n");
-			System.out.println("Exporting " + file);
 		}
 		fos.close();
 	}

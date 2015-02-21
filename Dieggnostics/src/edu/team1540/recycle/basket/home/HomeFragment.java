@@ -35,7 +35,6 @@ public class HomeFragment extends ScoutingFragment {
 	@Override
 	public void readyLayout() {
 		final TextView errorMessage = this.<TextView> getAsView(R.id.text_error_message);
-		
 		final Schedule schedule = Schedule.load("schedule.txt");
 		String contents = DieggnosticsIO.getFileContents("settings.txt");
 		String[] settings = contents.split(",");
