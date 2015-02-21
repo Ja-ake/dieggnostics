@@ -49,7 +49,7 @@ public class HomeFragment extends ScoutingFragment {
 			matchIndex = 1;
 			try {
 				FileWriter fw = new FileWriter(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/settings.txt");
-				fw.write(robotIndex + "," + matchIndex + "\n");
+				fw.write(robotIndex + "," + matchIndex + "," + RecyclingActivity.schema.competition + "\n");
 				fw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -61,7 +61,7 @@ public class HomeFragment extends ScoutingFragment {
 			robotIndex = 0;
 			try {
 				FileWriter fw = new FileWriter(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/settings.txt");
-				fw.write(robotIndex + "," + matchIndex + "\n");
+				fw.write(robotIndex + "," + matchIndex + "," + RecyclingActivity.schema.competition + "\n");
 				fw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
