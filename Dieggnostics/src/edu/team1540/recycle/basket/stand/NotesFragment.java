@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Stack;
 
 import android.content.Context;
 import android.os.Environment;
@@ -20,6 +21,7 @@ import edu.team1540.egg.core.FragmentBasket;
 import edu.team1540.egg.core.ScoutingFragment;
 import edu.team1540.recycle.R;
 import edu.team1540.recycle.RecyclingActivity;
+import edu.team1540.recycle.draw.SubmitDrawer;
 import edu.team1540.recycle.file.DieggnosticsIO;
 
 public class NotesFragment extends ScoutingFragment {
@@ -78,6 +80,9 @@ public class NotesFragment extends ScoutingFragment {
 				
 				String schemaName = "schemas/" + RecyclingActivity.schema.teamNumber + "-" + formattedDate + ".txt";
 				String notesName = "modnotes/" + RecyclingActivity.schema.teamNumber + ".txt";
+				
+				RecyclingActivity.oldSubmitDrawer = null;
+				RecyclingActivity.oldSubmitDrawerStack = new Stack<SubmitDrawer>();
 				
 				DieggnosticsIO.export(RecyclingActivity.schema, schemaName, notesName);
 				File version = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "version.txt");
