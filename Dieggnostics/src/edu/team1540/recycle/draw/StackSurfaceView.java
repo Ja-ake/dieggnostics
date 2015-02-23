@@ -2,6 +2,7 @@ package edu.team1540.recycle.draw;
 
 import java.util.Stack;
 
+import edu.team1540.recycle.RecyclingActivity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -20,6 +21,8 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 	public SubmitDrawer oldSubmitDrawer;
 	public Stack<SubmitDrawer> oldSubmitDrawerStack = new Stack<SubmitDrawer>();
 	public boolean coop;
+	
+	public static long threadid;
 
 	public StackSurfaceView(final Context context) {
 		super(context);
@@ -46,14 +49,15 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		new Thread() {
 			@Override
 			public void run() {
+				StackSurfaceView.threadid = this.getId();
 				while (true) {
 					try {
 						Thread.sleep(1);
 					} catch (final InterruptedException e) {
-						run();
 						break;
 					}
-					tthis.update();
+					if (StackSurfaceView.threadid == this.getId()) tthis.update();
+					else return;
 				}
 			}
 		}.start();
@@ -81,6 +85,7 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		if (canvas == null) {
 			return;
 		}
+		
 		canvas.drawColor(Color.rgb(244, 244, 244));
 		
 		submitDrawer.mainStack = mainStackDrawer.stackHeight;
@@ -141,6 +146,9 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		}
 
 		holder.unlockCanvasAndPost(canvas);
+		
+		RecyclingActivity.oldSubmitDrawer = oldSubmitDrawer;
+		RecyclingActivity.oldSubmitDrawerStack = oldSubmitDrawerStack;
 	}
 
 	@Override
