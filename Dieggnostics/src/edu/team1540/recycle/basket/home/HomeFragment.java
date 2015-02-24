@@ -81,19 +81,19 @@ public class HomeFragment extends ScoutingFragment {
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Rachel "));
 			break;
 		case 1:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Ross "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Monica "));
 			break;
 		case 2:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "Phoebe "));
 			break;
 		case 3:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Monica "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Ross "));
 			break;
 		case 4:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Carol "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Chandler "));
 			break;
 		case 5:
-			tabletID.setText(tabletID.getText().toString().replace("<None>", "Chandler "));
+			tabletID.setText(tabletID.getText().toString().replace("<None>", "Joey "));
 			break;
 		default:
 			tabletID.setText(tabletID.getText().toString().replace("<None>", "<Incorrect Setup> "));
