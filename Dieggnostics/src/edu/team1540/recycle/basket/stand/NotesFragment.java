@@ -92,6 +92,8 @@ public class NotesFragment extends ScoutingFragment {
 					FileWriter f = new FileWriter(version.getAbsolutePath());
 					f.write("" + RecyclingActivity.schema.matchNumber);
 					
+					System.out.println(RecyclingActivity.schema.teamNumber);
+					
 					FileWriter fprime = new FileWriter(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "settings.txt"));
 					fprime.write(RecyclingActivity.robotIndex + "," + (RecyclingActivity.matchIndex+1) + "," + RecyclingActivity.schema.competition + "\n");
 					fprime.close();

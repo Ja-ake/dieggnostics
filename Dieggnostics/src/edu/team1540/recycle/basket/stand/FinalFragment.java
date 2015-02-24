@@ -28,7 +28,7 @@ public class FinalFragment extends ScoutingFragment {
 	@Override
 	public void readyLayout() {
 		
-		if (!((RecyclingActivity)getActivity()).loggedIn) {
+		if (!((RecyclingActivity) getActivity()).loggedIn) {
 			// don't touch this, Gregor
 			FragmentBasket[] fb = ((RecyclingActivity)FinalFragment.this.getActivity()).getPages();
 			for (FragmentBasket basket : fb) {
@@ -252,31 +252,40 @@ public class FinalFragment extends ScoutingFragment {
 		
 		case R.id.radio_none: {
 			scheme.question4 = 0;
+			break;
 		}
 		case R.id.radio_one: {
 			scheme.question4 = 1;
+			break;
 		}
 		case R.id.radio_multiple: {
 			scheme.question4 = 2;
+			break;
 		}
 		case R.id.radio_unsure4: {
 			scheme.question4 = 3;
+			break;
 		}
 		
 		case R.id.radio_no: {
 			scheme.question5 = 0;
+			break;
 		}
 		case R.id.radio_no_show: {
 			scheme.question5 = 1;
+			break;
 		}
 		case R.id.radio_dead: {
 			scheme.question5 = 2;
+			break;
 		}
 		case R.id.radio_broke_down: {
 			scheme.question5 = 3;
+			break;
 		}
 		case R.id.radio_hindered: {
 			scheme.question5 = 4;
+			break;
 		}
 		default:
 			break;

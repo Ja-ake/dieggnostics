@@ -38,6 +38,8 @@ public final class RecyclingActivity extends ScoutingActivity {
 	public static int robotIndex;
 	public static int matchIndex;
 	
+//	public static Thread saveThread;
+	
 	@Override
 	public FragmentBasket[] getPages() {
 		final SubmitFragment sf = new SubmitFragment();
@@ -60,6 +62,23 @@ public final class RecyclingActivity extends ScoutingActivity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+//		saveThread = new Thread() {
+//			@Override
+//			public void run() {
+//				for (;;) {
+//				System.out.println("Running");
+//				try {
+//					this.sleep(1000);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}}
+//			}
+//		};
+		
+//		saveThread.start();
+		
+		System.out.println("Started");
 	}
 }
 
