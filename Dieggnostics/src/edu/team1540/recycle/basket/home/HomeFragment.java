@@ -103,7 +103,7 @@ public class HomeFragment extends ScoutingFragment {
 		this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
 		
 		final EditText setMatch = this.<EditText> getAsView(R.id.edit_match_number);
-		setMatch.setText("" + (matchIndex+1));
+		setMatch.setText("" + (matchIndex));
 		final int roboIndex = robotIndex;
 		final Button setMatchButton = this.<Button> getAsView(R.id.manual_match);
 		setMatchButton.setOnClickListener(new OnClickListener() {
