@@ -1,6 +1,9 @@
 package edu.team1540.recycle;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Stack;
 import java.util.UUID;
@@ -79,6 +82,36 @@ public final class RecyclingActivity extends ScoutingActivity {
 //		saveThread.start();
 		
 		System.out.println("Started");
+	}
+	
+	public final static File statetmp = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "state.tmp");
+
+	public static void saveState() throws IOException {
+		statetmp.createNewFile();
+		final String out = schema.export();
+		FileWriter fw = new FileWriter(statetmp);
+		fw.write(out);
+		fw.close();
+	}
+	
+	public static void loadState() throws IOException {
+		if (statetmp.exists()) schema = StandSchema.create(readFile(statetmp.getAbsolutePath()));
+	}
+	
+	private static String readFile(String file) throws IOException {
+		BufferedReader reader = new BufferedReader(new FileReader(file));
+		String line = null;
+		StringBuilder stringBuilder = new StringBuilder();
+		String ls = System.getProperty("line.separator");
+
+		while ((line = reader.readLine()) != null) {
+			stringBuilder.append(line);
+			stringBuilder.append(ls);
+		}
+
+		reader.close();
+
+		return stringBuilder.toString();
 	}
 }
 

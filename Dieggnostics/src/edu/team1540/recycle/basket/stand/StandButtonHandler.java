@@ -1,5 +1,7 @@
 package edu.team1540.recycle.basket.stand;
 
+import java.io.IOException;
+
 import org.team1540.common.core.schema.impl.StandSchema;
 import org.team1540.common.core.schema.impl.ToteStackSchema.ContainerState;
 
@@ -287,6 +289,12 @@ public class StandButtonHandler {
 		default:
 			Log.w("DIE", "A button was pressed that is not handled.");
 			break;
+		}
+		
+		try {
+			RecyclingActivity.saveState();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

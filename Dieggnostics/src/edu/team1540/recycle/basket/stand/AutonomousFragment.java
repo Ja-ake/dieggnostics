@@ -1,5 +1,7 @@
 package edu.team1540.recycle.basket.stand;
 
+import java.io.IOException;
+
 import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,6 +41,12 @@ public class AutonomousFragment extends ScoutingFragment {
 					break;
 				}
 			}
+		}
+		
+		try {
+			RecyclingActivity.loadState();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		this.<TextView> getAsView(R.id.robot_number_auto).setText(RecyclingActivity.robot);
@@ -104,6 +112,12 @@ public class AutonomousFragment extends ScoutingFragment {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				RecyclingActivity.schema.stackedTotes = isChecked;
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -111,6 +125,12 @@ public class AutonomousFragment extends ScoutingFragment {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				RecyclingActivity.schema.endedInAuto = isChecked;
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -128,6 +148,12 @@ public class AutonomousFragment extends ScoutingFragment {
 			@Override
 			public void onClick(View v) {
 				handleButtons(id, b);
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 	}

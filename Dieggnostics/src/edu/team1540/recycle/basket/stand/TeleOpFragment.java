@@ -1,5 +1,6 @@
 package edu.team1540.recycle.basket.stand;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.team1540.common.core.schema.impl.StandSchema;
@@ -45,6 +46,12 @@ public class TeleOpFragment extends ScoutingFragment {
 					break;
 				}
 			}
+		}
+		
+		try {
+			RecyclingActivity.loadState();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		this.<TextView> getAsView(R.id.text_container_countt).setText(RecyclingActivity.schema.litterContainer + "");

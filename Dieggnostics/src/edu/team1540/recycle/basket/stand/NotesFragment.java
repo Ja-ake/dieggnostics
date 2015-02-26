@@ -60,6 +60,8 @@ public class NotesFragment extends ScoutingFragment {
 					return;
 				}
 				
+				if (RecyclingActivity.statetmp.exists()) RecyclingActivity.statetmp.delete();
+				
 				try {
 					new File(Environment.getExternalStoragePublicDirectory(
 					        Environment.DIRECTORY_DOWNLOADS), "schedule.txt").createNewFile();

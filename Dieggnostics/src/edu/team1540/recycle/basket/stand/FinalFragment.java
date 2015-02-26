@@ -1,5 +1,7 @@
 package edu.team1540.recycle.basket.stand;
 
+import java.io.IOException;
+
 import org.team1540.common.core.schema.impl.StandSchema;
 
 import android.content.Context;
@@ -37,6 +39,12 @@ public class FinalFragment extends ScoutingFragment {
 					break;
 				}
 			}
+		}
+		
+		try {
+			RecyclingActivity.loadState();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		this.<TextView> getAsView(R.id.robot_number_final).setText(RecyclingActivity.robot);
@@ -151,6 +159,12 @@ public class FinalFragment extends ScoutingFragment {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				handleCheckboxes(checkedId);
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -158,6 +172,12 @@ public class FinalFragment extends ScoutingFragment {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				handleCheckboxes(checkedId);
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -165,6 +185,12 @@ public class FinalFragment extends ScoutingFragment {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				handleCheckboxes(checkedId);
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -172,6 +198,12 @@ public class FinalFragment extends ScoutingFragment {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				handleCheckboxes(checkedId);
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 		
@@ -179,6 +211,12 @@ public class FinalFragment extends ScoutingFragment {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				handleCheckboxes(checkedId);
+				
+				try {
+					RecyclingActivity.saveState();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 	}
@@ -289,6 +327,12 @@ public class FinalFragment extends ScoutingFragment {
 		}
 		default:
 			break;
+		}
+		
+		try {
+			RecyclingActivity.saveState();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
