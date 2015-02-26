@@ -114,7 +114,7 @@ public class HomeFragment extends ScoutingFragment {
 					errorMessage.setText("Error: Invalid match number. ");
 					return;
 				}
-				RecyclingActivity.robot = " Robot " + schedule.schedule.get(newMatchIndex-1)[roboIndex] + " : Match " + (newMatchIndex) + " : " + (roboIndex < 3 ? "RED " + (roboIndex+1) : "BLUE" + (roboIndex-2));
+				RecyclingActivity.robot = " Robot " + schedule.schedule.get(newMatchIndex-1)[roboIndex] + " : Match " + (newMatchIndex) + " : " + (roboIndex < 3 ? "RED " + (roboIndex+1) : "BLUE " + (roboIndex-2));
 				RecyclingActivity.schema.teamNumber = schedule.schedule.get(newMatchIndex-1)[roboIndex];
 				RecyclingActivity.schema.matchNumber = newMatchIndex;
 				RecyclingActivity.matchIndex = RecyclingActivity.schema.matchNumber;
