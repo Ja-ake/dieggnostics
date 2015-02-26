@@ -123,6 +123,7 @@ public class HomeFragment extends ScoutingFragment {
 				HomeFragment.this.<TextView> getAsView(R.id.robot_number_login).setText(RecyclingActivity.robot);
 				errorMessage.setText("Match number set successfully to " + newMatchIndex + ". ");
 				try {
+					RecyclingActivity.statetmp.delete();
 					FileWriter fw = new FileWriter(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/settings.txt");
 					fw.write(roboIndex + "," + newMatchIndex + "\n");
 					fw.close();
@@ -147,7 +148,9 @@ public class HomeFragment extends ScoutingFragment {
 				RecyclingActivity.schema.loginName = name;
 				loggedIn.loggedIn = true;
 				((RecyclingActivity)getActivity()).loggedIn = true;
-								
+				
+				RecyclingActivity.statetmp.delete();
+				
 				// don't touch this, Gregor
 				FragmentBasket[] fb = activity.getPages();
 				for (FragmentBasket basket : fb) {

@@ -2,6 +2,8 @@ package edu.team1540.recycle.draw;
 
 import java.util.Stack;
 
+import org.team1540.common.core.schema.impl.ToteStackSchema;
+
 import edu.team1540.recycle.RecyclingActivity;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -149,8 +151,30 @@ public class StackSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 		
 		RecyclingActivity.oldSubmitDrawer = oldSubmitDrawer;
 		RecyclingActivity.oldSubmitDrawerStack = oldSubmitDrawerStack;
-	}
+		
+		if (RecyclingActivity.schema.stacks.size() != oldSubmitDrawerStack
+				.size() + 1) {
+			if (oldSubmitDrawer != null) {
+				synchronized (RecyclingActivity.schema.stacks) {
+					RecyclingActivity.schema.stacks.clear();
 
+					for (SubmitDrawer sd : oldSubmitDrawerStack) {
+						RecyclingActivity.schema.stacks
+								.add(new ToteStackSchema(sd.oldStack,
+										sd.mainStack, sd.oContainer,
+										sd.mContainer, sd.coop));
+					}
+
+					RecyclingActivity.schema.stacks.add(new ToteStackSchema(
+							oldSubmitDrawer.oldStack,
+							oldSubmitDrawer.mainStack,
+							oldSubmitDrawer.oContainer,
+							oldSubmitDrawer.mContainer, oldSubmitDrawer.coop));
+				}
+			}
+		}
+	}
+	
 	@Override
 	public void surfaceDestroyed(final SurfaceHolder holder) {
 

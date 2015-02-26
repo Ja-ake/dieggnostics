@@ -84,9 +84,9 @@ public class StandSchema extends Schema {
 		b.append(containerStates[2] 	+ "\u0003");
 		b.append(containerStates[3] 	+ "\u0003");
 		b.append(competition + "\u0003");
-		for (ToteStackSchema ts : stacks) {
+		synchronized (stacks) { for (ToteStackSchema ts : stacks) {
 			b.append(ts.export() + "\u0005");
-		}
+		} }
 		b.append("\u0006");
 		
 		return b.toString();
@@ -137,11 +137,11 @@ public class StandSchema extends Schema {
 		scheme.competition = fields[32];
 		
 		String[] stacs = fields[33].split("\u0005");
-		for (int i=0; i<stacs.length-1; i++) {
+		synchronized (scheme.stacks) { for (int i=0; i<stacs.length-1; i++) {
 			final ToteStackSchema schemes = new ToteStackSchema(0, 0, false, false, false);
 			schemes.initialize(stacs[i]);
 			scheme.stacks.add(schemes);
-		}
+		} }
 		
 		return scheme;
 	}
