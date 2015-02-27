@@ -51,51 +51,64 @@ public class StandSchema extends Schema {
 	
 	public String export() {
 		StringBuilder b = new StringBuilder(256);
-		b.append(litterContainer 		+ "\u0003");
-		b.append(litterLandfill  		+ "\u0003");
-		b.append(containersRemovedStep 	+ "\u0003");
-		b.append(errorsAlpha 			+ "\u0003");
-		b.append(errorsBeta 			+ "\u0003");
-		b.append(errorsDelta 			+ "\u0003");
-		b.append(leftContainerAuto 		+ "\u0003");
-		b.append(middleContainerAuto 	+ "\u0003");
-		b.append(rightContainerAuto 	+ "\u0003");
-		b.append(leftToteAuto 			+ "\u0003");
-		b.append(middleToteAuto 		+ "\u0003");
-		b.append(rightToteAuto 			+ "\u0003");
-		b.append(leftContainerAutoTried 		+ "\u0003");
-		b.append(middleContainerAutoTried 	+ "\u0003");
-		b.append(rightContainerAutoTried 	+ "\u0003");
-		b.append(leftToteAutoTried 			+ "\u0003");
-		b.append(middleToteAutoTried 		+ "\u0003");
-		b.append(rightToteAutoTried 			+ "\u0003");
-		b.append(question1 				+ "\u0003");
-		b.append(question2 				+ "\u0003");
-		b.append(question3 				+ "\u0003");
-		b.append(question4 				+ "\u0003");
-		b.append(question5 				+ "\u0003");
-		b.append(stackedTotes			 + "\u0003");
-		b.append(endedInAuto 			+ "\u0003");
-		b.append(teamName 				+ "\u0003");
-		b.append(teamNumber 				+ "\u0003");
-		b.append(matchNumber 			+ "\u0003");
-		b.append(containerStates[0] 	+ "\u0003");
-		b.append(containerStates[1] 	+ "\u0003");
-		b.append(containerStates[2] 	+ "\u0003");
-		b.append(containerStates[3] 	+ "\u0003");
-		b.append(competition + "\u0003");
+		b.append(litterContainer 		+ "\u0244");
+		b.append(litterLandfill  		+ "\u0244");
+		b.append(containersRemovedStep 	+ "\u0244");
+		b.append(errorsAlpha 			+ "\u0244");
+		b.append(errorsBeta 			+ "\u0244");
+		b.append(errorsDelta 			+ "\u0244");
+		b.append(leftContainerAuto 		+ "\u0244");
+		b.append(middleContainerAuto 	+ "\u0244");
+		b.append(rightContainerAuto 	+ "\u0244");
+		b.append(leftToteAuto 			+ "\u0244");
+		b.append(middleToteAuto 		+ "\u0244");
+		b.append(rightToteAuto 			+ "\u0244");
+		b.append(leftContainerAutoTried 		+ "\u0244");
+		b.append(middleContainerAutoTried 	+ "\u0244");
+		b.append(rightContainerAutoTried 	+ "\u0244");
+		b.append(leftToteAutoTried 			+ "\u0244");
+		b.append(middleToteAutoTried 		+ "\u0244");
+		b.append(rightToteAutoTried 			+ "\u0244");
+		b.append(question1 				+ "\u0244");
+		b.append(question2 				+ "\u0244");
+		b.append(question3 				+ "\u0244");
+		b.append(question4 				+ "\u0244");
+		b.append(question5 				+ "\u0244");
+		b.append(stackedTotes			 + "\u0244");
+		b.append(endedInAuto 			+ "\u0244");
+		b.append(teamName 				+ "\u0244");
+		b.append(teamNumber 				+ "\u0244");
+		b.append(matchNumber 			+ "\u0244");
+		b.append(containerStates[0] 	+ "\u0244");
+		b.append(containerStates[1] 	+ "\u0244");
+		b.append(containerStates[2] 	+ "\u0244");
+		b.append(containerStates[3] 	+ "\u0244");
+		b.append(competition + "\u0244");
 		synchronized (stacks) { for (ToteStackSchema ts : stacks) {
-			b.append(ts.export() + "\u0005");
+			b.append(ts.export() + "\u0245");
 		} }
-		b.append("\u0006");
+		b.append("\u0246");
 		
 		return b.toString();
 	}
 	
 	public static StandSchema create(String str) {
 		StandSchema scheme = new StandSchema();
+		String d1;
+		String d2;
 		
 		String[] fields = str.split("\u0003");
+		if (fields.length > 10) {
+			d1 = "\u0003";
+			d2 = "\u0005";
+		}
+		else {
+			d1 = "\u0244";
+			d2 = "\u0245";
+			
+			fields = str.split(d1);
+		}
+		
 		scheme.litterContainer = Integer.parseInt(fields[0]);
 		scheme.litterLandfill = Integer.parseInt(fields[1]);
 		scheme.containersRemovedStep = Integer.parseInt(fields[2]);
@@ -136,7 +149,7 @@ public class StandSchema extends Schema {
 		
 		scheme.competition = fields[32];
 		
-		String[] stacs = fields[33].split("\u0005");
+		String[] stacs = fields[33].split(d2);
 		synchronized (scheme.stacks) { for (int i=0; i<stacs.length-1; i++) {
 			final ToteStackSchema schemes = new ToteStackSchema(0, 0, false, false, false);
 			schemes.initialize(stacs[i]);

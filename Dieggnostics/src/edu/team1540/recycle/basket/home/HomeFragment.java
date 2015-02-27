@@ -38,8 +38,10 @@ public class HomeFragment extends ScoutingFragment {
 		final Schedule schedule = Schedule.load("schedule.txt");
 		String contents = DieggnosticsIO.getFileContents("settings.txt");
 		String[] settings = contents.split(",");
-		int robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
-		int matchIndex = Integer.parseInt(settings[1].replaceAll("\\s",""));
+		int robotIndex = 1;
+		int matchIndex = 1;
+		try {robotIndex = Integer.parseInt(settings[0].replaceAll("\\s",""));
+		matchIndex = Integer.parseInt(settings[1].replaceAll("\\s","")); } catch (NumberFormatException e) {}
 		if (settings.length > 2) RecyclingActivity.schema.competition = settings[2];
 		
 		this.<TextView> getAsView(R.id.competition_name).setText(" "+RecyclingActivity.schema.competition);
@@ -109,7 +111,8 @@ public class HomeFragment extends ScoutingFragment {
 		setMatchButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				int newMatchIndex = Integer.parseInt(setMatch.getText().toString());
+				int newMatchIndex = 1;
+				try { newMatchIndex = Integer.parseInt(setMatch.getText().toString());  } catch (NumberFormatException e) {}
 				if (schedule.schedule.size() < newMatchIndex || newMatchIndex < 1) {
 					errorMessage.setText("Error: Invalid match number. ");
 					return;

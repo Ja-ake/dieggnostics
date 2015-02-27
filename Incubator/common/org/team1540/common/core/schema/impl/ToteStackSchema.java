@@ -26,11 +26,12 @@ public class ToteStackSchema extends Schema {
 	}
 	
 	public String export() {
-		return oldHeight + "\u0004" + newHeight + "\u0004" + oldContainer + "\u0004" + newContainer + "\u0004" + coopertition;
+		return oldHeight + "\u0247" + newHeight + "\u0247" + oldContainer + "\u0247" + newContainer + "\u0247" + coopertition;
 	}
 	
 	public void initialize(String s) {
 		String[] fields = s.split("\u0004");
+		if (fields.length < 2) fields = s.split("\u0247"); 
 		oldHeight = Integer.parseInt(fields[0]);
 		newHeight = Integer.parseInt(fields[1]);
 		oldContainer = Boolean.parseBoolean(fields[2]);
