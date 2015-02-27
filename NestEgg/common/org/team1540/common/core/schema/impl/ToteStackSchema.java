@@ -38,4 +38,8 @@ public class ToteStackSchema extends Schema {
 		newContainer = Boolean.parseBoolean(fields[3]);
 		coopertition = Boolean.parseBoolean(fields[4]);
 	}
+	
+	public String toReadableString() {
+		return "Old "+oldHeight+" New "+newHeight+" Coop "+coopertition;
+	}
 }

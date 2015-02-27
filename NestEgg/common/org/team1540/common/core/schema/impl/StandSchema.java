@@ -43,7 +43,24 @@ public class StandSchema extends Schema {
 	public String loginName = "";
 	
 	public String competition = "Default";
-
+	
+	public String toPrintableString() {
+		StringBuilder toReturn = new StringBuilder();
+		
+		toReturn.append("Team "+teamNumber+" "+teamName+" Match "+matchNumber+" "+competition+" ");
+		toReturn.append("Scouted By "+loginName+" ");
+		toReturn.append("AUTO: Stacked "+stackedTotes+" Moved "+endedInAuto+" Totes "+leftToteAuto+" "+middleToteAuto+" "+rightToteAuto+" Containers "+leftContainerAuto+" "+middleContainerAuto+" "+rightContainerAuto+" ");
+		toReturn.append("TELEOP: Stacks ");
+		for (ToteStackSchema t : stacks) {
+			toReturn.append(" "+t.toReadableString()+" ");
+		}
+		toReturn.append("ERRORS: Totes "+errorsAlpha+" Containers "+errorsBeta+" Interfere "+errorsDelta+" ");
+		toReturn.append("CONTAINERS OFF: "+containersRemovedStep+" ");
+		toReturn.append("LITTER: Landfill "+litterLandfill+" Container "+litterContainer+" ");
+		
+		return toReturn.toString();
+	}
+	
 	public StandSchema() {
 		stacks = new ArrayList<ToteStackSchema>();
 		containerStates = new ContainerState[4];
