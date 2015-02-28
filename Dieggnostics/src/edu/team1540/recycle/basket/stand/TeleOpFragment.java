@@ -255,6 +255,28 @@ public class TeleOpFragment extends ScoutingFragment {
 				stackSurfaceView.submitDrawer.reset();
 				if (stackSurfaceView.oldSubmitDrawer != null) stackSurfaceView.oldSubmitDrawer.reset();
 				
+				if (RecyclingActivity.schema.stacks.size() != stackSurfaceView.oldSubmitDrawerStack
+						.size() + 1) {
+					if (stackSurfaceView.oldSubmitDrawer != null) {
+						synchronized (RecyclingActivity.schema.stacks) {
+							RecyclingActivity.schema.stacks.clear();
+
+							for (SubmitDrawer sd : stackSurfaceView.oldSubmitDrawerStack) {
+								RecyclingActivity.schema.stacks
+										.add(new ToteStackSchema(sd.oldStack,
+												sd.mainStack, sd.oContainer,
+												sd.mContainer, sd.coop));
+							}
+
+							RecyclingActivity.schema.stacks.add(new ToteStackSchema(
+									stackSurfaceView.oldSubmitDrawer.oldStack,
+									stackSurfaceView.oldSubmitDrawer.mainStack,
+									stackSurfaceView.oldSubmitDrawer.oContainer,
+									stackSurfaceView.oldSubmitDrawer.mContainer, stackSurfaceView.oldSubmitDrawer.coop));
+						}
+					}
+				}
+				
 				return true;
 			}
 		});

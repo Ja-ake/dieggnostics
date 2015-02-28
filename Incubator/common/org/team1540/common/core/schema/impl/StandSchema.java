@@ -52,7 +52,7 @@ public class StandSchema extends Schema {
 		toReturn.append("AUTO: Stacked "+stackedTotes+" Moved "+endedInAuto+" Totes "+leftToteAuto+" "+middleToteAuto+" "+rightToteAuto+" Containers "+leftContainerAuto+" "+middleContainerAuto+" "+rightContainerAuto+" ");
 		toReturn.append("TELEOP: Stacks ");
 		for (ToteStackSchema t : stacks) {
-			toReturn.append(" "+t.toReadableString()+" ");
+			toReturn.append(" "+/*t.toReadableString()+*/" ");
 		}
 		toReturn.append("ERRORS: Totes "+errorsAlpha+" Containers "+errorsBeta+" Interfere "+errorsDelta+" ");
 		toReturn.append("CONTAINERS OFF: "+containersRemovedStep+" ");
