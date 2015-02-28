@@ -76,6 +76,7 @@ public class StandSchema extends Schema {
 		b.append(question5 				+ "\u0244");
 		b.append(stackedTotes			 + "\u0244");
 		b.append(endedInAuto 			+ "\u0244");
+		teamName = "..Stacked" + stacks.size() + "..";
 		b.append(teamName 				+ "\u0244");
 		b.append(teamNumber 				+ "\u0244");
 		b.append(matchNumber 			+ "\u0244");
