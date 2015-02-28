@@ -83,9 +83,6 @@ public class NotesFragment extends ScoutingFragment {
 				String schemaName = "schemas/" + RecyclingActivity.schema.teamNumber + "-" + formattedDate + ".txt";
 				String notesName = "modnotes/" + RecyclingActivity.schema.teamNumber + ".txt";
 				
-				RecyclingActivity.oldSubmitDrawer = null;
-				RecyclingActivity.oldSubmitDrawerStack = new Stack<SubmitDrawer>();
-				
 				DieggnosticsIO.export(RecyclingActivity.schema, schemaName, notesName);
 				File version = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "version.txt");
 				
@@ -93,8 +90,6 @@ public class NotesFragment extends ScoutingFragment {
 					version.createNewFile();
 					FileWriter f = new FileWriter(version.getAbsolutePath());
 					f.write("" + RecyclingActivity.schema.matchNumber);
-					
-					System.out.println(RecyclingActivity.schema.teamNumber);
 					
 					FileWriter fprime = new FileWriter(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "settings.txt"));
 					fprime.write(RecyclingActivity.robotIndex + "," + (RecyclingActivity.matchIndex+1) + "," + RecyclingActivity.schema.competition + "\n");
@@ -111,8 +106,13 @@ public class NotesFragment extends ScoutingFragment {
 					
 					f.close();
 				} catch (IOException e) {
+					RecyclingActivity.oldSubmitDrawer = null;
+					RecyclingActivity.oldSubmitDrawerStack = new Stack<SubmitDrawer>();
 					e.printStackTrace();
 				}
+				
+				RecyclingActivity.oldSubmitDrawer = null;
+				RecyclingActivity.oldSubmitDrawerStack = new Stack<SubmitDrawer>();
 				
 				NotesFragment.this.attemptIncrementCurrentBasket();
 			}

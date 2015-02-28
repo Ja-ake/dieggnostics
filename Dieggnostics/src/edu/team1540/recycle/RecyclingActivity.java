@@ -41,7 +41,7 @@ public final class RecyclingActivity extends ScoutingActivity {
 	public static int robotIndex;
 	public static int matchIndex;
 	
-//	public static Thread saveThread;
+	public static Thread saveThread;
 	
 	@Override
 	public FragmentBasket[] getPages() {
@@ -70,15 +70,15 @@ public final class RecyclingActivity extends ScoutingActivity {
 //			@Override
 //			public void run() {
 //				for (;;) {
-//				System.out.println("Running");
+//				System.out.println("Stack total: " + schema.stacks.size());
 //				try {
-//					this.sleep(1000);
+//					Thread.sleep(1000);
 //				} catch (InterruptedException e) {
 //					e.printStackTrace();
 //				}}
 //			}
 //		};
-		
+//		
 //		saveThread.start();
 		
 		System.out.println("Started");
