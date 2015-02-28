@@ -1,6 +1,8 @@
 package edu.team1540.recycle.basket.stand;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -61,6 +63,34 @@ public class NotesFragment extends ScoutingFragment {
 				}
 				
 				if (RecyclingActivity.statetmp.exists()) RecyclingActivity.statetmp.delete();
+				
+				try {
+					File file = new File(
+							Environment
+									.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+							"stacksLength.txt");
+					StringBuilder builder = new StringBuilder();
+					if (file.exists()) {
+						FileReader fr = new FileReader(file);
+						BufferedReader br = new BufferedReader(fr);
+						String s;
+						while ((s = br.readLine()) != null) {
+							builder.append(s+"\n");
+						}
+						br.close();
+					}
+					
+					if (file.exists()) file.createNewFile();
+					
+					FileWriter writer = new FileWriter(file);
+					writer.write(builder.toString());
+					
+					writer.append("t"+RecyclingActivity.schema.teamNumber + " m" + RecyclingActivity.schema.matchNumber + " s" + RecyclingActivity.schema.stacks.size());
+					
+					writer.close();
+				} catch (IOException e) {
+
+				}
 				
 				try {
 					new File(Environment.getExternalStoragePublicDirectory(

@@ -74,35 +74,6 @@ public class StandSchema extends Schema {
 	}
 	
 	public String export() {
-		try {
-			File file = new File(
-					Environment
-							.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-					"stacksLength.txt");
-			StringBuilder builder = new StringBuilder();
-			if (file.exists()) {
-				FileReader fr = new FileReader(file);
-				BufferedReader br = new BufferedReader(fr);
-				String s;
-				while ((s = br.readLine()) != null) {
-					builder.append(s+"\n");
-				}
-				br.close();
-			}
-			
-			if (file.exists()) file.createNewFile();
-			
-			FileWriter writer = new FileWriter(file);
-			writer.write(builder.toString());
-			
-			writer.append("t"+this.teamNumber + " m" + this.matchNumber + " s" + this.stacks.size());
-			
-			writer.close();
-		} catch (IOException e) {
-
-		}
-
-		
 		StringBuilder b = new StringBuilder(256);
 		b.append(litterContainer 		+ "\u0244");
 		b.append(litterLandfill  		+ "\u0244");
